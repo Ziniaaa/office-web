@@ -1,0 +1,515 @@
+@use 'reset';
+@use 'variables' as *;
+@use 'function' as *;
+
+
+#index {
+    width: 100%;
+    height: 100vh;
+
+    .row1 {
+        display: flex;
+        height: 90%;
+
+        .row1-left {
+            flex: 1;
+            outline: $gray-light solid 2px;
+            display: flex;
+            justify-content: space-between;
+            background-image: url(../public/images/bg-linear-right.jpg);
+            background-position: right;
+            z-index: 11;
+
+            h1 {
+                -webkit-writing-mode: vertical-lr;
+                writing-mode: vertical-lr;
+                font-size: $font-size-xxl;
+                margin: $interval-m;
+                letter-spacing: 0.6rem;
+
+                a {
+                    color: $gray-dark;
+                }
+            }
+
+            h2 {
+                text-align: right;
+                -webkit-writing-mode: vertical-lr;
+                writing-mode: vertical-lr;
+                text-orientation: sideways;
+                margin: 20px;
+                letter-spacing: 0.2rem;
+                color: $gray-normal;
+            }
+        }
+
+        .row1-right {
+            flex: 3;
+            outline: $gray-light solid 2px;
+            z-index: 11;
+
+            .carousel {
+                height: 100%;
+                background-image: url(../public/images/index-1.jpg);
+                background-size: cover;
+                background-position: center;
+                position: relative;
+                z-index: 10;
+            }
+
+            .carousel-item {
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                ;
+            }
+        }
+    }
+
+    .row2 {
+        display: flex;
+        background-color: white;
+        height: 10%;
+
+        .row2-left {
+            flex: 1;
+            outline: $gray-light solid 2px;
+            z-index: 10;
+        }
+
+        .row2-right {
+            flex: 3;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background-image: url(../public/images/bg-linear-left.jpg);
+            background-size: cover;
+            outline: $gray-light solid 2px;
+            z-index: 10;
+
+            ul {
+                display: flex;
+                margin-right: 10%;
+                width: auto;
+
+                li {
+                    a {
+                        text-align: center;
+                        margin-right: 30px;
+                        gap: 5px;
+                    }
+
+                    p {
+                        font-size: $font-size-m;
+                        font-weight: $font-w-semiBold;
+                        color: $gray-dark;
+                        line-height: 1.1;
+                        background: linear-gradient(to left, transparent 50%, black 50%) right;
+                        background-size: 200%;
+                        transition: all ease-in-out 0.3s;
+                    }
+
+                    span {
+                        font-size: $font-size-s;
+                        font-weight: $font-w-regular;
+                        color: $gray-normal;
+                        width: auto;
+                        background: linear-gradient(to left, transparent 50%, black 50%) right;
+                        background-size: 200%;
+                        transition: all ease-in-out 0.3s;
+                    }
+
+                    &:hover {
+                        p {
+                            color: white;
+                            font-weight: $font-w-regular;
+                            background-position: left;
+                        }
+
+                        span {
+                            width: auto;
+                            color: white;
+                            background-position: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*專案經歷頁*/
+#project {
+    // background-color: lightcoral;
+    @extend %bg-linear-left;
+}
+
+#project-header {
+    display: flex;
+    height: 65px;
+    border-bottom: $gray-light 2px solid;
+
+    .header-left {
+        flex: 1;
+        @extend %outline-basic;
+        display: flex;
+        align-items: end;
+
+        h2 {
+            margin-left: 60px;
+            font-size: $font-size-l;
+
+            a {
+                color: $gray-normal;
+                letter-spacing: 5px;
+            }
+        }
+    }
+
+    .header-right {
+        flex: 3;
+    }
+}
+
+#project-main {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 65px);
+
+    .mainLeft {
+        @extend %bg-linear-right;
+        flex: 22;
+
+        .row1 {
+            // outline: lightseagreen solid;
+            height: calc(100vh - 165px);
+            display: flex;
+            align-items: center;
+
+            .carousel {
+                flex: 3.2;
+                background-image: url(../public/images/content-1-1.jpg);
+                background-size: cover;
+                background-position: center;
+                height: 80%;
+            }
+
+            .projectContent {
+                flex: 2;
+                color: $gray-dark;
+                padding: 0 55px;
+                margin-bottom: 100px;
+
+                h2 {
+                    font-size: $font-size-xl;
+
+                    &::after {
+                        content: "01.";
+                        font-size: 4rem;
+                        color: $gray-bright;
+                        font-family: $font-family-zh;
+                    }
+                }
+            }
+
+            .project-intro {
+                margin-bottom: 100px;
+            }
+
+            .project-detail {
+                p {
+                    margin: 10px 0;
+                }
+            }
+        }
+
+        .row2 {
+            // outline: lightskyblue solid;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: end;
+            height: 100px;
+            padding: 20px;
+            gap: 10px;
+
+            p {
+                margin: 0 10px;
+                color: $gray-normal;
+            }
+
+            .project-list {
+                ul {
+                    display: flex;
+                    color: $gray-normal;
+
+                    li {
+                        margin: 0 10px;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .mainRight {
+        flex: 1;
+        min-width: 60px;
+        // outline: lavender solid
+        @extend %outline-basic;
+    }
+}
+
+/*業務內容頁*/
+#content {
+    @extend %bg-linear-right;
+
+    #content-header {
+        display: flex;
+        height: 65px;
+        border-bottom: $gray-light 2px solid;
+
+        .header-left {
+            flex: 22;
+            @extend %outline-basic;
+            display: flex;
+            justify-content: start;
+            align-items: end;
+
+            h2 {
+                margin-left: 60px;
+                font-size: $font-size-l;
+
+                a {
+                    color: $gray-normal;
+                    letter-spacing: 5px;
+                }
+            }
+        }
+
+        .header-right {
+            flex: 1;
+            min-width: 60px;
+
+        }
+    }
+
+    #content-main {
+        width: 100%;
+        height: calc(100vh - 65px);
+
+        .middle {
+            height: calc(100vh - 130px);
+            display: flex;
+            z-index: 11;
+
+            .mainLeft {
+                flex: 1;
+                min-width: 60px;
+            }
+
+            .mainRight {
+                @extend %outline-basic;
+                // background-color: white;
+                @extend %bg-linear-left;
+
+                flex: 22;
+                display: flex;
+                justify-content: center;
+
+                .col-wrap {
+                    width: 100%;
+                    max-width: 1400px;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    display: flex;
+
+                    .col {
+                        max-width: 250px;
+                        width: 18%;
+
+                        &:hover {
+                            img {
+                                filter: brightness(50%);
+                            }
+                        }
+
+                        img {
+                            width: 100%;
+                        }
+
+                        h3 {
+                            text-align: center;
+                            color: $gray-normal;
+                            margin: 20px 0;
+                            padding-bottom: 5px;
+                        }
+
+                        article {
+                            color: $gray-normal;
+                            border-left: $gray-light solid 2px;
+                            padding-left: 15px;
+                            padding-right: 5px;
+                            line-height: $font-size-xxl;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bottom {
+            background-color: lightpink;
+            height: 65px;
+            display: flex;
+            border-top: $gray-light solid 2px;
+
+            .bottomLeft {
+                flex: 1;
+                border-right: $gray-light solid 2px;
+                background-color: white;
+            }
+
+            .bottomRight {
+                flex: 3;
+                @extend %bg-linear-left;
+                z-index: 10;
+            }
+        }
+    }
+}
+
+/*關於建築師頁*/
+
+#about {
+    @extend %bg-linear-left;
+
+    #about-header {
+        display: flex;
+        height: 65px;
+        border-bottom: $gray-light 2px solid;
+
+        .header-left {
+            flex: 3;
+        }
+
+        .header-right {
+            flex: 1;
+            @extend %outline-basic;
+            display: flex;
+            justify-content: start;
+            align-items: end;
+
+            h2 {
+                margin-left: 60px;
+                font-size: $font-size-l;
+
+                a {
+                    color: $gray-normal;
+                    letter-spacing: 5px;
+                }
+            }
+        }
+
+    }
+
+    #about-main {
+        width: 100%;
+        height: calc(100vh - 65px);
+
+        .middle {
+            height: calc(100vh - 130px);
+            display: flex;
+            z-index: 11;
+
+            .mainRight {
+                flex: 1;
+                min-width: 60px;
+            }
+
+            .mainLeft {
+                @extend %outline-basic;
+                @extend %bg-linear-right;
+                flex: 22;
+                display: flex;
+                justify-content: start;
+
+                .col-1 {
+                    flex: 3;
+                    display: flex;
+                    align-items: center;
+
+                    .carousel {
+                        height: 90%;
+
+                        img {
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+                }
+
+                .col-2 {
+                    flex: 1.3;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .profile-wrap {
+                        color: $gray-normal;
+
+                        img {
+                            width: 200px;
+                        }
+
+                        .profile-name {
+                            color: $gray-dark;
+                            font-size: $font-size-l;
+                            letter-spacing: .4rem;
+                            margin: 25px 0;
+                            padding-left: 10px;
+
+                        }
+
+                        .profile-title {
+                            margin-bottom: 15px;
+                            padding-left: 10px;
+                            letter-spacing: .2rem;
+                        }
+
+                        .profile-detail {
+                            font-size: $font-size-s;
+                            line-height: $font-size-xxl;
+                            letter-spacing: .1rem;
+                            padding-left: 10px;
+
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .bottom {
+
+            height: 65px;
+            display: flex;
+            border-top: $gray-light solid 2px;
+
+            .bottomLeft {
+                flex: 22;
+                background-color: white;
+                @extend %bg-linear-left;
+            }
+            
+            .bottomRight {
+                flex: 1;
+                min-width: 60px;
+                border-left: $gray-light solid 2px;
+                background-color: white;
+            }
+        }
+    }
+}

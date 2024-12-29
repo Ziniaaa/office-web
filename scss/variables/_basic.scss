@@ -1,0 +1,59 @@
+//間距
+$interval-xs:8px;
+$interval-s:10px;
+$interval-m:16px;
+$interval-l:20px;
+$interval-xl:24px;
+$interval-xxl:40px;
+$interval-xxl:60px;
+$interval-x-s:0 10px;
+$interval-x-m:0 16px;
+$interval-y-xs:8px 0 ;
+$interval-xy-s:10px 20px;
+$interval-xy-l:20px 50px;
+
+
+// 速率
+$speed-fast:.35s;
+$speed-medium:.5s;
+
+// 特效
+$text-shadow-gray: 0px 0px 3px  gray;
+
+
+// font-size
+$font-size-xs:0.7rem;
+$font-size-s:0.8rem;
+$font-size-m:1rem;
+$font-size-l:1.2rem;
+$font-size-xl:1.4rem;
+$font-size-xxl:1.8rem;
+
+// font-weight
+$font-w-thin:100;
+$font-w-extraLight:200;
+$font-w-light:300;
+$font-w-regular:400;
+$font-w-medium:500;
+$font-w-semiBold:600;
+$font-w-bold:700;
+$font-w-heavy:800;
+$font-w-black:900;
+
+//font-family
+$font-family-en:"Carlito";
+$font-family-zh:"Noto Serif TC", serif;
+
+// 圓角
+$border-r-xs:4px;
+$border-r-s:8px;
+$border-r-m:10px;
+$border-r-l:16px;
+
+
+//RWD斷點
+$mediaSm:'max-width:640px';
+$mediaSmUp:'min-width:641px'; //非手機版時的樣式(手機版和桌機版完全不同樣式的時候使用)
+$mediaMdDown: 'max-width:1024px';
+$mediaMd:'max-width:1023px';
+$mediaLg:'min-width:1024px';

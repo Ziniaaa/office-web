@@ -1,0 +1,49 @@
+// 大量會重複的樣式程式碼放這裡
+
+// 多行省略
+%line-multiple {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    // ↓行數改於區塊中設定(因為可能其他地方行數會改變)
+    // -webkit-line-clamp: ;
+}
+
+// 單行省略
+%line-single {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+// 區塊內物件置中(可另加flex direction)
+%box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// 區塊外框線
+%outline-basic {
+    outline: #C0C0C0 solid 2px;
+}
+
+//背景漸層右白
+%bg-linear-right {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), white),
+        url(../public/images/bg-linear-right.jpg);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+// 背景漸層左白
+%bg-linear-left {
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.5), white),
+        url(../public/images/bg-linear-left.jpg);
+    background-color: white;
+    background-position: right;
+    background-repeat: no-repeat;
+}
