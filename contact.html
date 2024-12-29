@@ -1,37 +1,65 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.min.css">
+
     <title>聯絡資訊 contact - ○○○建築師事務所</title>
 </head>
-<body>
-    header>
-        <div>
-            <p>○○○建築師事務所</p>
+
+<body id="contact">
+    <header id="contact-header">
+        <div class="header-left ">
+            <h2><a href="./index.html">○○○建築師事務所</a></h2>
         </div>
-        <div>(空)</div>
+        <div class="header-right "></div>
     </header>
-    <main>
+    <main id="contact-main">
+        <div class="mainLeft">menuBar</div>
         <div class="mainRight">
             <div class="col-1">
-                <h3>聯絡我們</h3>
-                <ul>
-                    <li>聯絡電話：<span>03-123-4567</span></li>
-                    <li>傳真號碼：03-987-6543</li>
-                    <li>電子信箱：<span>architect@gmail.com</span></li>
-                    <li>地址：桃園市桃園區民權路147號</li>
-                </ul>
+                <div class="col-1-wrap">
+                    <h3>聯絡我們</h3>
+                    <ul>
+                        <li>聯絡電話：<span>03-123-4567</span></li>
+                        <li>傳真號碼：03-987-6543</li>
+                        <li>電子信箱：<span>architect@gmail.com</span></li>
+                        <li>地址：桃園市桃園區民權路147號</li>
+                    </ul>
+                    <figure><img src="./images/contact-map.jpg" alt=""></figure>
+                </div>
             </div>
             <div class="col-2">
                 <h3>業務聯繫</h3>
-                
+                <form id="contact-form" action="" method="post" name="contact-form" title="聯絡我們表單">
+                    <div class="form-row">
+                        <label for="username"><span style="color:#3A3A3A;">* </span>姓名</label>
+                        <input type="text" name="username" id="username" title="姓名" placeholder="請輸入姓名" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="email"><span style="color:#3A3A3A;">* </span>電子郵件</label>
+                        <input type="email" name="email" id="email" title="Email" placeholder="請輸入E-mail" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="tel">連絡電話</label>
+                        <input type="tel" name="tel" id="tel" title="tel" placeholder="請輸入連絡電話">
+                    </div>
+                    <div class="form-row">
+                        <label for="comment">留言</label>
+                        <textarea name="comment" id="comment" rows="8" title="留言欄位" cols="50"></textarea>
+                    </div>
+                    <button type="submit" name="submit-btn" id="submit-btn" title="送出表單"><span>送出</span></button>
+
+                    <small>(此表單為練習作品，無蒐集資料之效果。不具有商業行為。非正式網站。)</small>
+                </form>
             </div>
         </div>
-        <div class="mainLeft">menuBar</div>
     </main>
     <footer>
-        <small>©2025  ○○○建築師事務所</small>
+        <small>© 2025 ○○○建築師事務所</small>
     </footer>
 </body>
+
 </html>

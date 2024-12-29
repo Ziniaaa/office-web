@@ -16,7 +16,7 @@
             outline: $gray-light solid 2px;
             display: flex;
             justify-content: space-between;
-            background-image: url(../public/images/bg-linear-right.jpg);
+            background-image: url(../images/bg-linear-right.jpg);
             background-position: right;
             z-index: 11;
 
@@ -50,7 +50,7 @@
 
             .carousel {
                 height: 100%;
-                background-image: url(../public/images/index-1.jpg);
+                background-image: url(../images/index-1.jpg);
                 background-size: cover;
                 background-position: center;
                 position: relative;
@@ -82,7 +82,7 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            background-image: url(../public/images/bg-linear-left.jpg);
+            background-image: url(../images/bg-linear-left.jpg);
             background-size: cover;
             outline: $gray-light solid 2px;
             z-index: 10;
@@ -188,7 +188,7 @@
 
             .carousel {
                 flex: 3.2;
-                background-image: url(../public/images/content-1-1.jpg);
+                background-image: url(../images/content-1-1.jpg);
                 background-size: cover;
                 background-position: center;
                 height: 80%;
@@ -420,13 +420,25 @@
         height: calc(100vh - 65px);
 
         .middle {
-            height: calc(100vh - 130px);
+            height: calc(100vh - 65px);
             display: flex;
             z-index: 11;
 
             .mainRight {
                 flex: 1;
                 min-width: 60px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .bottomRight {
+                    height: 65px;
+                    border-top: $gray-light solid 2px;
+
+                    min-width: 60px;
+                    border-left: $gray-light solid 2px;
+                    background-color: white;
+                }
             }
 
             .mainLeft {
@@ -434,82 +446,252 @@
                 @extend %bg-linear-right;
                 flex: 22;
                 display: flex;
-                justify-content: start;
+                flex-direction: column;
+                justify-content: space-between;
 
-                .col-1 {
-                    flex: 3;
+                .col-wrap {
                     display: flex;
-                    align-items: center;
+                    height: calc(100vh - 130px);
+                    align-content: center;
 
-                    .carousel {
-                        height: 90%;
+                    .col-1 {
+                        flex: 3;
+                        display: flex;
+                        align-items: center;
 
-                        img {
-                            height: 100%;
-                            object-fit: contain;
-                        }
-                    }
-                }
+                        .carousel {
+                            height: 90%;
 
-                .col-2 {
-                    flex: 1.3;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-
-                    .profile-wrap {
-                        color: $gray-normal;
-
-                        img {
-                            width: 200px;
-                        }
-
-                        .profile-name {
-                            color: $gray-dark;
-                            font-size: $font-size-l;
-                            letter-spacing: .4rem;
-                            margin: 25px 0;
-                            padding-left: 10px;
-
-                        }
-
-                        .profile-title {
-                            margin-bottom: 15px;
-                            padding-left: 10px;
-                            letter-spacing: .2rem;
-                        }
-
-                        .profile-detail {
-                            font-size: $font-size-s;
-                            line-height: $font-size-xxl;
-                            letter-spacing: .1rem;
-                            padding-left: 10px;
-
+                            img {
+                                height: 100%;
+                                object-fit: contain;
+                            }
                         }
                     }
 
+                    .col-2 {
+                        flex: 1.3;
+                        display: flex;
+                        padding-left: 150px;
+                        justify-content: start;
+                        align-items: center;
+
+
+                        .profile-wrap {
+                            color: $gray-normal;
+
+                            img {
+                                width: 200px;
+                            }
+
+                            .profile-name {
+                                color: $gray-dark;
+                                font-size: $font-size-l;
+                                letter-spacing: .4rem;
+                                margin: 25px 0;
+                                padding-left: 10px;
+
+                            }
+
+                            .profile-title {
+                                margin-bottom: 15px;
+                                padding-left: 10px;
+                                letter-spacing: .2rem;
+                            }
+
+                            .profile-detail {
+                                font-size: $font-size-s;
+                                line-height: $font-size-xxl;
+                                letter-spacing: .1rem;
+                                padding-left: 10px;
+
+                            }
+                        }
+
+                    }
                 }
             }
-        }
-
-        .bottom {
-
-            height: 65px;
-            display: flex;
-            border-top: $gray-light solid 2px;
 
             .bottomLeft {
-                flex: 22;
+                height: 65px;
+                border-top: $gray-light solid 2px;
+
                 background-color: white;
                 @extend %bg-linear-left;
             }
-            
-            .bottomRight {
-                flex: 1;
-                min-width: 60px;
-                border-left: $gray-light solid 2px;
-                background-color: white;
-            }
         }
     }
+}
+
+/*聯絡資訊頁*/
+#contact {
+    @extend %bg-linear-right;
+
+    #contact-header {
+        display: flex;
+        height: 65px;
+        border-bottom: $gray-light 2px solid;
+
+        .header-left {
+            flex: 22;
+            @extend %outline-basic;
+            display: flex;
+            justify-content: start;
+            align-items: end;
+
+            h2 {
+                margin-left: 60px;
+                font-size: $font-size-l;
+
+                a {
+                    color: $gray-normal;
+                    letter-spacing: 5px;
+                }
+            }
+        }
+
+        .header-right {
+            flex: 1;
+            min-width: 60px;
+        }
+    }
+
+    #contact-main {
+        width: 100%;
+        height: calc(100vh - 130px);
+        display: flex;
+
+        .mainLeft {
+            flex: 1;
+            min-width: 60px;
+        }
+
+        .mainRight {
+            @extend %outline-basic;
+            background-color: white;
+            flex: 22;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $gray-normal;
+
+            .col-1 {
+                flex: 1;
+                // height: 80%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                padding-left: 100px;
+
+                .col-1-wrap {
+
+                    h3 {
+                        font-size: $font-size-l;
+                    }
+
+                    ul {
+                        font-family: $font-family-zh;
+                        letter-spacing: .1rem;
+
+                        li {
+                            margin: 10px 0;
+                        }
+                    }
+                }
+            }
+
+            .col-2 {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+
+                h3 {
+                    font-size: $font-size-l;
+                    margin-bottom: 25px;
+                }
+
+                #contact-form {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 30px;
+                    padding-right: 90px;
+
+                    .form-row {
+                        display: flex;
+                        width: 100%;
+
+                        label {
+                            flex: 1;
+                            text-align: end;
+                            margin-right: 15px;
+                        }
+
+                        input,
+                        textarea {
+                            flex: 4;
+                            width: 100%;
+                            color: $gray-light;
+                            font-size: $font-size-s;
+                            padding: 5px;
+                            outline-color: transparent;
+                            border-radius: 2pt;
+                            border: $gray-light solid 1px;
+
+                            &::placeholder {
+                                color: $gray-light;
+                                padding-left: 5px;
+                            }
+
+                            &:focus {
+                                box-shadow: 0 0 3px 2px $gray-light;
+
+                            }
+                        }
+                    }
+
+
+                    #submit-btn {
+                        width: 70px;
+                        background-color: white;
+                        border: $gray-normal solid 1px;
+                        color: $gray-normal;
+                        margin-left: 90px;
+
+                    }
+
+                    small {
+                        font-size: $font-size-xs;
+                        color: $gray-bright;
+                    }
+                }
+            }
+
+        }
+    }
+
+    footer {
+        height: 65px;
+        @extend %bg-linear-left;
+        line-height: 65px;
+        text-align: center;
+        letter-spacing: .2rem;
+        border-top: $gray-light 2px solid;
+        color: $gray-normal;
+        font-family: $font-family-zh;
+    }
+}
+
+/*選單面板*/
+#menuOverlay-left{
+    position: absolute;
+    top:65px;
+    height: 100px;
+    background-color: lightcoral;
 }
