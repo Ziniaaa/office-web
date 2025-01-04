@@ -1,0 +1,104 @@
+@use 'variables' as *;
+@use 'function' as *;
+@use '_keyframe' as*;
+
+.slider {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+
+    .slide_viewer {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+
+        .slide_group {
+            height: 100%;
+            position: relative;
+            width: 100%;
+
+            .slide {
+                display: none;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                
+                img{
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
+
+.slide_buttons {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    margin-top: 10px;
+
+
+    a.slide_btn {
+        color: $gray-light;
+        font-size: 30px;
+        margin: 0 0.5rem;
+        -webkit-transition: all 0.4s ease-in-out;
+        -moz-transition: all 0.4s ease-in-out;
+        -ms-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        z-index: 10;
+    }
+
+    .slide_btn.active,
+    &:hover {
+        color: $gray-dark;
+        cursor: pointer;
+    }
+}
+
+.directional_nav {
+    height: auto;
+    width: 100%;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    margin: auto;
+    top:0;
+    bottom: 0;
+    cursor:default;
+
+
+    .previous_btn,
+    .next_btn {
+        cursor: pointer;
+        opacity: 0.5;
+        -webkit-transition: opacity 0.4s ease-in-out;
+        -moz-transition: opacity 0.4s ease-in-out;
+        -ms-transition: opacity 0.4s ease-in-out;
+        -o-transition: opacity 0.4s ease-in-out;
+        transition: opacity 0.4s ease-in-out;
+    }
+
+    .previous_btn:hover,
+    .next_btn:hover {
+        opacity: 1;
+    }
+}
+
+
+@media ($mediaSm) {
+    .previous_btn {
+        left: 50px;
+        border: red solid;
+    }
+
+    .next_btn {
+        right: 50px;
+    }
+}

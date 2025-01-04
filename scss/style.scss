@@ -182,12 +182,14 @@
     .mainLeft {
         @extend %bg-linear-right;
         flex: 22;
+        flex-direction: column;
 
         .row1 {
             // outline: lightseagreen solid;
             height: calc(100vh - 165px);
             display: flex;
             align-items: center;
+            width: 100%;
 
             .carousel {
                 flex: 3.2;
@@ -233,6 +235,7 @@
             justify-content: center;
             align-items: end;
             height: 100px;
+            width: 100%;
             padding: 20px;
             gap: 10px;
 
@@ -517,6 +520,7 @@
 
             .bottomLeft {
                 height: 65px;
+                width: 100%;
                 border-top: $gray-light solid 2px;
 
                 background-color: white;
@@ -695,6 +699,7 @@
 #menuOverlay-right {
     // border: solid indianred;
     position: absolute;
+    z-index: 999;
     top: 65px;
     height: calc(100vh - 65px);
     width: 100%;
@@ -795,9 +800,114 @@
         }
     }
 }
+#menuOverlay-left {
+    // border: solid indianred;
+    position: absolute;
+    z-index: 999;
+    top: 65px;
+    height: calc(100vh - 65px);
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: start;
+    overflow: hidden;
+    // display: none;
+    animation: hide .35s both;
+
+    &.show {
+        display: flex;
+        animation: show 0.4s both;
+    }
+
+    .menu-wrap {
+        height: 100%;
+        width: 80%;
+        background-image: url(../images/bg-linear-left.jpg);
+        background-color: white;
+        background-position: right;
+        background-repeat: no-repeat;
+        display: flex;
+        position: relative;
+
+
+
+        .col-page {
+            // border: solid lawngreen;
+            flex: 1;
+            min-width: 225px;
+            z-index: 10;
+
+            ul {
+                // border: solid goldenrod;
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+
+                li {
+                    // border: solid palevioletred;
+                    width: auto;
+
+                    a {
+                        text-align: center;
+
+                    }
+
+                    p {
+                        @extend %menu-link-p;
+                    }
+
+                    span {
+                        @extend %menu-link-span;
+                    }
+
+                    &:hover {
+                        P {
+                            @extend %menu-link-p-hover;
+                        }
+
+                        span {
+                            @extend %menu-link-span-hover;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .col-pic {
+            // border: solid lightskyblue;
+            flex: 3;
+            z-index: 10;
+            margin-top: 90px;
+
+            .thumbnail-pic {
+                // border: solid lightsalmon;
+                display: flex;
+
+                figure {
+                    width: 100px;
+                    height: 75px;
+                    margin-right: 40px;
+                }
+            }
+        }
+
+        .bg-menu {
+            width: 700px;
+            position: absolute;
+            bottom: -50px;
+            right: -70px;
+            z-index: 1;
+            mix-blend-mode: multiply;
+            opacity: 0.6;
+        }
+    }
+}
 
 .hamburger {
     // 修改button預設樣式
+    // outline:solid yellow;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -827,13 +937,52 @@
     //     }
     // }
 }
+.mainLeft{
+    display: flex;
+    justify-content:end ;
+    align-items: start;
+}
 
-.ham-inside {
+.ham-inside-R {
     // 修改button預設樣式
     background-color: transparent;
     border: none;
     cursor: pointer;
-    margin: 15px;
+    margin: 0 25px;
+    align-self: self-start;
+
+    .bar {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background-color: $gray-dark;
+        margin: 5px auto;
+        transition: 0.35s; //漢堡動畫
+    }
+
+    .bar {
+        &:nth-child(1) {
+            transform: rotate(45deg) translateY(6px) translateX(5px);
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+        }
+
+        &:nth-child(3) {
+            transform: rotate(-45deg) translateY(-6px)translateX(5px);
+        }
+    }
+
+    &.is-active {}
+}
+.ham-inside-L {
+    // 修改button預設樣式
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0 25px;
+    
 
     .bar {
         display: block;
