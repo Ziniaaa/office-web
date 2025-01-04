@@ -1,6 +1,7 @@
 @use 'reset';
 @use 'variables' as *;
 @use 'function' as *;
+@use '_keyframe' as*;
 
 
 #index {
@@ -50,11 +51,13 @@
 
             .carousel {
                 height: 100%;
-                background-image: url(../images/index-1.jpg);
-                background-size: cover;
-                background-position: center;
-                position: relative;
-                z-index: 10;
+                // background-image: url(../images/index-1.jpg);
+                // background-size: cover;
+                // background-position: center;
+                // position: relative;
+                // z-index: 10;
+
+                
             }
 
             .carousel-item {
@@ -689,9 +692,171 @@
 }
 
 /*選單面板*/
-#menuOverlay-left{
+#menuOverlay-right {
+    // border: solid indianred;
     position: absolute;
-    top:65px;
-    height: 100px;
-    background-color: lightcoral;
+    top: 65px;
+    height: calc(100vh - 65px);
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: end;
+    overflow: hidden;
+    // display: none;
+    animation: hide .35s both;
+
+    &.show {
+        display: flex;
+        animation: show 0.4s both;
+    }
+
+    .menu-wrap {
+        height: 100%;
+        width: 80%;
+        background-image: url(../images/bg-linear-left.jpg);
+        background-color: white;
+        background-position: right;
+        background-repeat: no-repeat;
+        display: flex;
+        position: relative;
+
+
+
+        .col-page {
+            // border: solid lawngreen;
+            flex: 1;
+            min-width: 225px;
+            z-index: 10;
+
+            ul {
+                // border: solid goldenrod;
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+
+                li {
+                    // border: solid palevioletred;
+                    width: auto;
+
+                    a {
+                        text-align: center;
+
+                    }
+
+                    p {
+                        @extend %menu-link-p;
+                    }
+
+                    span {
+                        @extend %menu-link-span;
+                    }
+
+                    &:hover {
+                        P {
+                            @extend %menu-link-p-hover;
+                        }
+
+                        span {
+                            @extend %menu-link-span-hover;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .col-pic {
+            // border: solid lightskyblue;
+            flex: 3;
+            z-index: 10;
+            margin-top: 90px;
+
+            .thumbnail-pic {
+                // border: solid lightsalmon;
+                display: flex;
+
+                figure {
+                    width: 100px;
+                    height: 75px;
+                    margin-right: 40px;
+                }
+            }
+        }
+
+        .bg-menu {
+            width: 700px;
+            position: absolute;
+            bottom: -50px;
+            right: -70px;
+            z-index: 1;
+            mix-blend-mode: multiply;
+            opacity: 0.6;
+        }
+    }
+}
+
+.hamburger {
+    // 修改button預設樣式
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    .bar {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background-color: $gray-dark;
+        margin: 5px auto;
+        transition: 0.35s; //漢堡動畫
+    }
+
+    // &.is-active {
+    //     .bar {
+    //         &:nth-child(1) {
+    //             transform: rotate(45deg) translateY(6px) translateX(5px);
+    //         }
+
+    //         &:nth-child(2) {
+    //             opacity: 0;
+    //         }
+
+    //         &:nth-child(3) {
+    //             transform: rotate(-45deg) translateY(-6px)translateX(5px);
+    //         }
+    //     }
+    // }
+}
+
+.ham-inside {
+    // 修改button預設樣式
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 15px;
+
+    .bar {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background-color: $gray-dark;
+        margin: 5px auto;
+        transition: 0.35s; //漢堡動畫
+    }
+
+    .bar {
+        &:nth-child(1) {
+            transform: rotate(45deg) translateY(6px) translateX(5px);
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+        }
+
+        &:nth-child(3) {
+            transform: rotate(-45deg) translateY(-6px)translateX(5px);
+        }
+    }
+
+    &.is-active {}
 }

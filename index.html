@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 【套件】換圖輪播css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+    <!-- 輪播本地scss -->
+    <link rel="stylesheet" href="./scss/_style_indexCarousel.scss">
+
     <link rel="stylesheet" href="./css/style.min.css">
     <title>○○○建築師事務所</title>
 </head>
@@ -17,6 +22,68 @@
             </div>
             <div class="row1-right">
                 <div class="carousel">
+                    <!-- 輪播套件 -->
+                    <div class="timeline">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide" style="background-image: url(./images/index-1.jpg)"
+                                    data-num="2011">
+                                    <div class="swiper-slide-content"><span class="timeline-year">2011</span>
+                                        <h4 class="timeline-title">Our nice super title</h4>
+                                        <p class="timeline-text">Lorem ipsum dolor site amet, consectetur adipscing
+                                            elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut
+                                            enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut
+                                            aliquip ex ea commodo consequat.</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" style="background-image: url(./images/index-2.jpg)"
+                                    data-num="2012">
+                                    <div class="swiper-slide-content"><span class="timeline-year">2012</span>
+                                        <h4 class="timeline-title">Our nice super title</h4>
+                                        <p class="timeline-text">Lorem ipsum dolor site amet, consectetur adipscing
+                                            elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut
+                                            enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut
+                                            aliquip ex ea commodo consequat.</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide" style="background-image: url(./images/index-3.jpg)"
+                                    data-num="2013">
+                                    <div class="swiper-slide-content"><span class="timeline-year">2013</span>
+                                        <h4 class="timeline-title">Our nice super title</h4>
+                                        <p class="timeline-text">Lorem ipsum dolor site amet, consectetur adipscing
+                                            elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut
+                                            enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut
+                                            aliquip ex ea commodo consequat.</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide"
+                                    style="background-image: url(https://unsplash.it/1920/500?image=14)"
+                                    data-num="我是測試">
+                                    <div class="swiper-slide-content"><span class="timeline-year">2014</span>
+                                        <h4 class="timeline-title">Our nice super title</h4>
+                                        <p class="timeline-text">Lorem ipsum dolor site amet, consectetur adipscing
+                                            elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut
+                                            enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut
+                                            aliquip ex ea commodo consequat.</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide"
+                                    style="background-image: url(https://unsplash.it/1920/500?image=15)"
+                                    data-num="2015">
+                                    <div class="swiper-slide-content"><span class="timeline-year">2015</span>
+                                        <h4 class="timeline-title">Our nice super title</h4>
+                                        <p class="timeline-text">Lorem ipsum dolor site amet, consectetur adipscing
+                                            elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut
+                                            enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut
+                                            aliquip ex ea commodo consequat.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
                     <div class="carousel-item">
                         <div>Lorem, ipsum.</div>
                         <div>Click to Enter</div>
@@ -28,14 +95,25 @@
             <div class="row2-left"></div>
             <div class="row2-right">
                 <ul>
-                    <li><a href="./project.html"><p>專案經歷</p><span>PROJECT</span></a></li>
-                    <li><a href="./content.html"><p>業務內容</p><span>CONTENT</span></a></li>
-                    <li><a href="./about.html"><p>關於建築師</p><span>ABOUT</span></a></li>
-                    <li><a href="./contact.html"><p>聯絡資訊</p><span>CONTACT</span></a></li>
+                    <li><a href="./project.html">
+                            <p>專案經歷</p><span>PROJECT</span>
+                        </a></li>
+                    <li><a href="./content.html">
+                            <p>業務內容</p><span>CONTENT</span>
+                        </a></li>
+                    <li><a href="./about.html">
+                            <p>關於建築師</p><span>ABOUT</span>
+                        </a></li>
+                    <li><a href="./contact.html">
+                            <p>聯絡資訊</p><span>CONTACT</span>
+                        </a></li>
                 </ul>
             </div>
         </div>
     </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+    <script src="./js/script_index.js"> </script>
 </body>
 
 </html>

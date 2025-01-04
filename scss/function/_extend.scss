@@ -47,3 +47,37 @@
     background-position: right;
     background-repeat: no-repeat;
 }
+
+// menu連結標題樣式
+
+%menu-link-p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3A3A3A;
+    line-height: 1.1;
+    background: linear-gradient(to left, transparent 50%, black 50%) right;
+    background-size: 200%;
+    transition: all ease-in-out 0.3s;
+}
+
+%menu-link-span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #838383;
+    width: auto;
+    background: linear-gradient(to left, transparent 50%, black 50%) right;
+    background-size: 200%;
+    transition: all ease-in-out 0.3s;
+}
+
+%menu-link-p-hover {
+    color: white;
+    font-weight: 400;
+    background-position: left;
+}
+
+%menu-link-span-hover {
+    width: auto;
+    color: white;
+    background-position: left;
+}
