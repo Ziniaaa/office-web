@@ -338,36 +338,83 @@ a {
 #project-main .mainLeft .row1 {
   height: calc(100vh - 165px);
   display: flex;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  /* 預設第一個內容顯示 */
+  /* 剛被切換掉的內容 */
+  /* 等待顯示的內容 */
+}
+#project-main .mainLeft .row1 > div {
+  display: flex;
+  height: 100%;
   align-items: center;
   width: 100%;
+  position: absolute;
+  top: 0;
+  transform: translateX(100%);
+  /* 初始位置在右側外部 */
+  transition: transform 0.5s ease;
+  /* 改為一直顯示，用 transform 控制可見性 */
 }
-#project-main .mainLeft .row1 .carousel {
+#project-main .mainLeft .row1 > div .carousel {
   flex: 3.2;
   background-image: url(../images/content-1-1.jpg);
   background-size: cover;
   background-position: center;
   height: 80%;
 }
-#project-main .mainLeft .row1 .projectContent {
+#project-main .mainLeft .row1 > div .carousel #arrowsWrap {
+  margin-top: 25px;
+}
+#project-main .mainLeft .row1 > div .projectContent {
   flex: 2;
   color: #3A3A3A;
   padding: 0 55px;
   margin-bottom: 100px;
 }
-#project-main .mainLeft .row1 .projectContent h2 {
+#project-main .mainLeft .row1 > div .projectContent h2 {
   font-size: 1.4rem;
 }
-#project-main .mainLeft .row1 .projectContent h2::after {
-  content: "01.";
+#project-main .mainLeft .row1 > div .projectContent h2::after {
+  content: "";
   font-size: 4rem;
   color: #E2E2E2;
   font-family: "Noto Serif TC", serif;
 }
-#project-main .mainLeft .row1 .project-intro {
+#project-main .mainLeft .row1 > div .project-intro {
   margin-bottom: 100px;
 }
-#project-main .mainLeft .row1 .project-detail p {
+#project-main .mainLeft .row1 > div .project-detail p {
   margin: 10px 0;
+}
+#project-main .mainLeft .row1 .row1 > div:first-child {
+  transform: translateX(0);
+}
+#project-main .mainLeft .row1 > div.show {
+  transform: translateX(0);
+  z-index: 2;
+}
+#project-main .mainLeft .row1 .row1 > div.hide-left {
+  transform: translateX(-100%);
+}
+#project-main .mainLeft .row1 .row1 > div.wait-right {
+  transform: translateX(100%);
+}
+#project-main .mainLeft .row1 .row1-1 .projectContent h2::after {
+  content: "01.";
+}
+#project-main .mainLeft .row1 .row1-2 .projectContent h2::after {
+  content: "02.";
+}
+#project-main .mainLeft .row1 .row1-3 .projectContent h2::after {
+  content: "03.";
+}
+#project-main .mainLeft .row1 .row1-4 .projectContent h2::after {
+  content: "04.";
+}
+#project-main .mainLeft .row1 .row1-5 .projectContent h2::after {
+  content: "05.";
 }
 #project-main .mainLeft .row2 {
   display: flex;
@@ -389,13 +436,51 @@ a {
 }
 #project-main .mainLeft .row2 .project-list ul li {
   margin: 0 10px;
+  transition: all 0.3s ease;
 }
 #project-main .mainLeft .row2 .project-list ul li:hover {
   cursor: pointer;
+  color: #222222;
+}
+#project-main .mainLeft .row2 .project-list ul .active {
+  color: #F5F5F5;
+  background-color: #3A3A3A;
+}
+#project-main .mainLeft .row2 .project-list ul .active:hover {
+  cursor: pointer;
+  color: #F5F5F5;
 }
 #project-main .mainRight {
   flex: 1;
   min-width: 60px;
+}
+
+.tooltip {
+  color: red;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.debug-hotspot {
+  position: absolute;
+  border: 2px solid rgba(255, 0, 0, 0.5);
+  background-color: rgba(255, 0, 0, 0.2);
+  pointer-events: none;
+  /* 確保不會干擾滑鼠事件 */
+  z-index: 100;
+}
+.debug-hotspot::after {
+  content: attr(data-area);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 12px;
 }
 
 /*業務內容頁*/

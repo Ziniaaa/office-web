@@ -60,7 +60,11 @@
   transition: all 0.4s ease-in-out;
   z-index: 10;
 }
-.slide_buttons .slide_btn.active, .slide_buttons:hover {
+.slide_buttons a.slide_btn:hover {
+  cursor: pointer;
+  color: #838383;
+}
+.slide_buttons .slide_btn.active {
   color: #3A3A3A;
   cursor: pointer;
 }
@@ -83,11 +87,11 @@
 .directional_nav .next_btn {
   cursor: pointer;
   opacity: 0.5;
-  -webkit-transition: opacity 0.4s ease-in-out;
-  -moz-transition: opacity 0.4s ease-in-out;
-  -ms-transition: opacity 0.4s ease-in-out;
-  -o-transition: opacity 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 .directional_nav .previous_btn:hover,
 .directional_nav .next_btn:hover {

@@ -185,41 +185,29 @@
         flex-direction: column;
 
         .row1 {
-            // outline: lightseagreen solid;
+            outline: lightseagreen solid;
             height: calc(100vh - 165px);
             display: flex;
             width: 100%;
-            position: relative;
-            overflow: hidden;
-
+            
+            
             >div {
-                display: flex;
+                display: none;
                 height: 100%;
                 align-items: center;
-                width: 100%;
-                position: absolute;
-                top: 0;
-                transform: translateX(100%);
-                /* 初始位置在右側外部 */
-                transition: transform 0.5s ease;
-                // display: block;
-                /* 改為一直顯示，用 transform 控制可見性 */
+                width: 90%;
 
                 .carousel {
-                    // outline: salmon solid;
+                    outline: salmon solid;
                     flex: 3.2;
                     background-image: url(../images/content-1-1.jpg);
                     background-size: cover;
                     background-position: center;
                     height: 80%;
-
-                    #arrowsWrap {
-                        margin-top: 25px;
-                    }
                 }
 
                 .projectContent {
-                    // outline: sandybrown solid;
+                    outline: sandybrown solid;
                     flex: 2;
                     color: $gray-dark;
                     padding: 0 55px;
@@ -229,7 +217,7 @@
                         font-size: $font-size-xl;
 
                         &::after {
-                            content: "";
+                            content: "01.";
                             font-size: 4rem;
                             color: $gray-bright;
                             font-family: $font-family-zh;
@@ -249,47 +237,10 @@
 
             }
 
-            /* 預設第一個內容顯示 */
-            .row1>div:first-child {
-                transform: translateX(0);
-            }
-
             >div.show {
-
-                transform: translateX(0);
-                z-index: 2;
+                display: flex;
             }
 
-            /* 剛被切換掉的內容 */
-            .row1>div.hide-left {
-                transform: translateX(-100%);
-            }
-
-            /* 等待顯示的內容 */
-            .row1>div.wait-right {
-                transform: translateX(100%);
-            }
-
-            // 指定頁after
-            .row1-1 .projectContent h2::after {
-                content: "01.";
-            }
-
-            .row1-2 .projectContent h2::after {
-                content: "02.";
-            }
-
-            .row1-3 .projectContent h2::after {
-                content: "03.";
-            }
-
-            .row1-4 .projectContent h2::after {
-                content: "04.";
-            }
-
-            .row1-5 .projectContent h2::after {
-                content: "05.";
-            }
         }
 
         .row2 {
@@ -315,21 +266,9 @@
 
                     li {
                         margin: 0 10px;
-                        transition: all 0.3s ease;
 
                         &:hover {
                             cursor: pointer;
-                            color: $gray-darker;
-                        }
-                    }
-
-                    .active {
-                        color: $gray-brighter;
-                        background-color: $gray-dark;
-
-                        &:hover {
-                            cursor: pointer;
-                            color: $gray-brighter;
                         }
                     }
                 }
@@ -342,35 +281,6 @@
         min-width: 60px;
         // outline: lavender solid
         @extend %outline-basic;
-    }
-}
-
-.tooltip {
-    color: red;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.debug-hotspot {
-    position: absolute;
-    border: 2px solid rgba(255, 0, 0, 0.5);
-    background-color: rgba(255, 0, 0, 0.2);
-    pointer-events: none;
-    /* 確保不會干擾滑鼠事件 */
-    z-index: 100;
-
-    &::after {
-        content: attr(data-area);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        background-color: rgba(0, 0, 0, 0.7);
-        padding: 2px 6px;
-        border-radius: 3px;
-        font-size: 12px;
     }
 }
 

@@ -11,90 +11,28 @@ function initializeCarousel($slider) {
     // 檢查是否為 row1-1 或 row1-2 中的輪播
     const isFirstRow = $slider.closest('.row1-1').length > 0;
 
-    // 定義熱點的相對位置（以百分比表示）
+    // 為每個輪播設置不同的 hotspots
     const hotspotsConfig = {
         'row1-1': {
-            0: [ // 第一張圖片的熱點
-                {
-                    area: {
-                        xStart: 20,  // 左上角 x 位置（佔圖片寬度的百分比）
-                        yStart: 30,  // 左上角 y 位置（佔圖片高度的百分比）
-                        xEnd: 40,    // 右下角 x 位置（佔圖片寬度的百分比）
-                        yEnd: 50     // 右下角 y 位置（佔圖片高度的百分比）
-                    },
-                    text: 'A區域文字'
-                },
-                {
-                    area: {
-                        xStart: 60,
-                        yStart: 40,
-                        xEnd: 80,
-                        yEnd: 60
-                    },
-                    text: 'A-2區域文字'
-                }
+            0: [ // 第一張圖片的熱點 (A)
+                { area: { x1: 0, y1: 0, x2: 200, y2: 200 }, text: 'A區域文字' },
+                { area: { x1: 200, y1: 200, x2: 400, y2: 400 }, text: 'A-2區域文字' }
             ],
-            1: [ // 第二張圖片的熱點
-                {
-                    area: {
-                        xStart: 30,
-                        yStart: 30,
-                        xEnd: 50,
-                        yEnd: 50
-                    },
-                    text: 'B區域文字'
-                }
+            1: [ // 第二張圖片的熱點 (B)
+                { area: { x1: 150, y1: 150, x2: 350, y2: 350 }, text: 'B區域文字' }
             ]
         },
         'row1-2': {
-            // ... row1-2 的設定同上 ...
-            0: [ // 第一張圖片的熱點
-                {
-                    area: {
-                        xStart: 20,  // 左上角 x 位置（佔圖片寬度的百分比）
-                        yStart: 30,  // 左上角 y 位置（佔圖片高度的百分比）
-                        xEnd: 40,    // 右下角 x 位置（佔圖片寬度的百分比）
-                        yEnd: 50     // 右下角 y 位置（佔圖片高度的百分比）
-                    },
-                    text: 'C區域文字'
-                },
-                {
-                    area: {
-                        xStart: 60,
-                        yStart: 40,
-                        xEnd: 80,
-                        yEnd: 60
-                    },
-                    text: 'C-2區域文字'
-                }
+            0: [ // 第一張圖片的熱點 (C)
+                { area: { x1: 100, y1: 100, x2: 300, y2: 300 }, text: 'C區域文字' }
             ],
-            1: [ // 第二張圖片的熱點
-                {
-                    area: {
-                        xStart: 30,
-                        yStart: 30,
-                        xEnd: 50,
-                        yEnd: 50
-                    },
-                    text: 'D區域文字'
-                }
+            1: [ // 第二張圖片的熱點 (D)
+                { area: { x1: 50, y1: 50, x2: 250, y2: 250 }, text: 'D區域文字' }
             ]
         }
     };
-    // 計算實際熱點位置的函數
-    function calculateHotspotPosition(hotspot, $image) {
-        const imageWidth = $image.width();
-        const imageHeight = $image.height();
 
-        return {
-            x1: (hotspot.area.xStart / 100) * imageWidth,
-            y1: (hotspot.area.yStart / 100) * imageHeight,
-            x2: (hotspot.area.xEnd / 100) * imageWidth,
-            y2: (hotspot.area.yEnd / 100) * imageHeight
-        };
-    }
-
-    // (舊保留)確保每個輪播只有一個 tooltip
+    // 確保每個輪播只有一個 tooltip
     if ($('.tooltip').length === 0) {
         $('body').append(`
         <div class="tooltip" style="display: none; position: fixed; padding: 8px; background: white; border: 1px solid #ccc; pointer-events: none; z-index: 1000;">
@@ -112,16 +50,14 @@ function initializeCarousel($slider) {
 
         if (!hotspots) return;
 
-        const $image = $(this).find('img');
-        const rect = $image[0].getBoundingClientRect();
+        const rect = this.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
         // 檢查是否在任何熱點區域內
         const activeHotspot = hotspots.find(hotspot => {
-            const pos = calculateHotspotPosition(hotspot, $image);
-            return x >= pos.x1 && x <= pos.x2 &&
-                y >= pos.y1 && y <= pos.y2;
+            return x >= hotspot.area.x1 && x <= hotspot.area.x2 &&
+                y >= hotspot.area.y1 && y <= hotspot.area.y2;
         });
 
         if (activeHotspot) {
@@ -134,14 +70,6 @@ function initializeCarousel($slider) {
                 .text(activeHotspot.text);
         } else {
             $tooltip.hide();
-        }
-    });
-
-    // 視窗大小改變時重新計算熱點位置
-    $(window).on('resize', function () {
-        // 如果正在顯示 tooltip，更新其位置
-        if ($tooltip.is(':visible')) {
-            $slides.trigger('mousemove');
         }
     });
 
@@ -252,82 +180,16 @@ function initializeCarousel($slider) {
         bulletArray.push($button);
     });
 
-
-    // ※添加繪製 debug 區域的函數
-    function drawDebugHotspots($slide, hotspots) {
-        // 先清除現有的 debug 區域
-        $slide.find('.debug-hotspot').remove();
-        if (!hotspots) return;
-        const $image = $slide.find('img');
-
-        hotspots.forEach((hotspot, index) => {
-            const pos = calculateHotspotPosition(hotspot, $image);
-            const $debug = $('<div>')
-                .addClass('debug-hotspot')
-                .attr('data-area', hotspot.text)
-                .css({
-                    left: pos.x1 + 'px',
-                    top: pos.y1 + 'px',
-                    width: (pos.x2 - pos.x1) + 'px',
-                    height: (pos.y2 - pos.y1) + 'px'
-                });
-            $slide.append($debug);
-        });
-    }
-    // 在適當的時機繪製 debug 區域
-    function updateDebugHotspots() {
-        $slides.each(function () {
-            const slideIndex = $(this).index();
-            const rowClass = isFirstRow ? 'row1-1' : 'row1-2';
-            const hotspots = hotspotsConfig[rowClass][slideIndex];
-            drawDebugHotspots($(this), hotspots);
-        });
-    }
-
-    // 初始化時繪製debug 區域
-    updateDebugHotspots();
-
-    // 視窗大小改變時重新繪製debug 區域
-    $(window).on('resize', debounce(function () {
-        updateDebugHotspots();
-    }, 150));
-
-    
-
     advance();
 }
-// slide輪播語法結束
 
-
-
-
-
-// 確保圖片載入完成後再初始化
-$(window).on('load', function () {
+// 頁面載入時初始化所有輪播
+$(document).ready(function () {
+    // 為每個 row1-1 和 row1-2 中的輪播分別初始化
     $('.row1-1 .slider, .row1-2 .slider').each(function () {
         initializeCarousel($(this));
     });
 });
-
-// 可選：添加 debounce 函數來優化 resize 事件處理
-function debounce(func, wait) {
-    let timeout;
-    return function () {
-        const context = this;
-        const args = arguments;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            func.apply(context, args);
-        }, wait);
-    };
-}
-
-// 使用 debounce 優化 resize 事件
-$(window).on('resize', debounce(function () {
-    $('.row1-1 .slider, .row1-2 .slider').each(function () {
-        $(this).find('.slide').trigger('mousemove');
-    });
-}, 150)); // 150ms 延遲
 
 // 箭頭寬度調整
 function updateArrowsWidth() {
@@ -344,6 +206,16 @@ $(document).ready(function () {
     // 當窗口大小改變時更新箭頭寬度
     $(window).on('resize', updateArrowsWidth);
 });
+
+
+
+
+
+
+
+
+
+
 
 
 
