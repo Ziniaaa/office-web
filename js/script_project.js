@@ -8,8 +8,8 @@ function initializeCarousel($slider) {
     var isHovered = false;
 
     // 滑鼠熱點功能
-    // 檢查是否為 row1-1 或 row1-2 中的輪播
-    const isFirstRow = $slider.closest('.row1-1').length > 0;
+    // 檢查是在哪個row中的輪播
+    const rowClass = $slider.closest('[class^="row1-"]').attr('class').split(' ')[0];
 
     // 定義熱點的相對位置（以百分比表示）
     const hotspotsConfig = {
@@ -79,6 +79,65 @@ function initializeCarousel($slider) {
                     text: 'D區域文字'
                 }
             ]
+        },
+        'row1-3': {
+            0: [ // 第一張圖片的熱點
+                {
+                    area: {
+                        xStart: 20,  // 左上角 x 位置（佔圖片寬度的百分比）
+                        yStart: 30,  // 左上角 y 位置（佔圖片高度的百分比）
+                        xEnd: 40,    // 右下角 x 位置（佔圖片寬度的百分比）
+                        yEnd: 50     // 右下角 y 位置（佔圖片高度的百分比）
+                    },
+                    text: 'E區域文字'
+                }
+            ],
+            1: [ // 第二張圖片的熱點
+                {
+                    area: {
+                        xStart: 30,
+                        yStart: 30,
+                        xEnd: 50,
+                        yEnd: 50
+                    },
+                    text: 'F區域文字'
+                },
+                {
+                    area: {
+                        xStart: 60,
+                        yStart: 40,
+                        xEnd: 80,
+                        yEnd: 60
+                    },
+                    text: 'G區域文字'
+                }
+            ]
+        },
+        'row1-4': {
+            0: [ // 第一張圖片的熱點
+                {
+                    area: {
+                        xStart: 20, 
+                        yStart: 30, 
+                        xEnd: 40, 
+                        yEnd: 50 
+                    },
+                    text: 'H區域文字'
+                }
+            ]
+        },
+        'row1-5': {
+            0: [ // 第一張圖片的熱點
+                {
+                    area: {
+                        xStart: 20, 
+                        yStart: 30, 
+                        xEnd: 40,   
+                        yEnd: 50     
+                    },
+                    text: 'I區域文字'
+                }
+            ]
         }
     };
     // 計算實際熱點位置的函數
@@ -107,8 +166,7 @@ function initializeCarousel($slider) {
     // 熱點-滑鼠移動事件處理
     $slides.on('mousemove', function (e) {
         const slideIndex = $(this).index();
-        const rowClass = isFirstRow ? 'row1-1' : 'row1-2';
-        const hotspots = hotspotsConfig[rowClass][slideIndex];
+        const hotspots = hotspotsConfig[rowClass]?.[slideIndex];
 
         if (!hotspots) return;
 
@@ -278,8 +336,7 @@ function initializeCarousel($slider) {
     function updateDebugHotspots() {
         $slides.each(function () {
             const slideIndex = $(this).index();
-            const rowClass = isFirstRow ? 'row1-1' : 'row1-2';
-            const hotspots = hotspotsConfig[rowClass][slideIndex];
+            const hotspots = hotspotsConfig[rowClass]?.[slideIndex];
             drawDebugHotspots($(this), hotspots);
         });
     }
@@ -292,19 +349,16 @@ function initializeCarousel($slider) {
         updateDebugHotspots();
     }, 150));
 
-    
+
 
     advance();
 }
 // slide輪播語法結束
 
 
-
-
-
-// 確保圖片載入完成後再初始化
+// 確保圖片載入完成後再初始化所有輪播
 $(window).on('load', function () {
-    $('.row1-1 .slider, .row1-2 .slider').each(function () {
+    $('[class^="row1-"] .slider').each(function () {
         initializeCarousel($(this));
     });
 });
