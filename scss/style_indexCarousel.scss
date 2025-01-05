@@ -110,7 +110,7 @@
     }
 
     .swiper-pagination {
-        right: 15% !important;
+        right: 5% !important;
         height: 100%;
         display: none;
         flex-direction: column;
@@ -182,7 +182,7 @@
     }
 
     .swiper-button-prev {
-        border: rgb(255, 241, 40) solid;
+        border: rgb(58, 255, 40) solid;
         left: 2%;
         background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23d4a024'%2F%3E%3C%2Fsvg%3E");
 
@@ -263,14 +263,15 @@
     @media screen and ($mediaLg) {
         .swiper-slide {
             &::after {
-                right: -20%;
+                right: -40%;
                 bottom: -12%;
                 width: 240px;
                 height: 50%;
-                box-shadow: -230px 0 150px 39vw rgba(rgb(255, 54, 211), .7);
+                box-shadow: -230px 0 150px 39vw rgba($gray-dark, .7);
             }
 
             &-content {
+                border: solid saddlebrown;
                 right: 25%;
             }
         }

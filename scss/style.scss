@@ -69,6 +69,38 @@
         }
     }
 
+    @media ($mediaSm) {
+        .row1 {
+            flex-direction: column;
+            display: flex;
+
+            .row1-left {
+                flex: unset;
+                flex-direction: column;
+
+                h1 {
+                    writing-mode: unset
+                }
+
+                h2 {
+                    writing-mode: unset
+                }
+            }
+        }
+
+        .row2 {
+            .row2-left {
+                display: none;
+            }
+
+            .row2-right {
+                ul{
+                    margin-right: 0 !important;
+                }
+            }
+        }
+    }
+
     .row2 {
         display: flex;
         background-color: white;

@@ -244,6 +244,28 @@ a {
   right: 10px;
   bottom: 10px;
 }
+@media (max-width:640px) {
+  #index .row1 {
+    flex-direction: column;
+    display: flex;
+  }
+  #index .row1 .row1-left {
+    flex: unset;
+    flex-direction: column;
+  }
+  #index .row1 .row1-left h1 {
+    writing-mode: unset;
+  }
+  #index .row1 .row1-left h2 {
+    writing-mode: unset;
+  }
+  #index .row2 .row2-left {
+    display: none;
+  }
+  #index .row2 .row2-right ul {
+    margin-right: 0 !important;
+  }
+}
 #index .row2 {
   display: flex;
   background-color: white;
