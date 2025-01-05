@@ -37,7 +37,7 @@
             bottom: -10%;
             width: 100%;
             height: 100%;
-            background-color: rgba(rgb(226, 136, 34), .8);
+            background-color: rgba($gray-dark, .8);
 
             box-shadow: -230px 0 50px 30vw rgba(rgb(89, 226, 55), .9);
             border-radius: 100%;
@@ -117,10 +117,10 @@
         justify-content: center;
         font-family: $font-family-zh-sans;
         // font-style: italic;
-        font-weight: 300;
+        font-weight: $font-w-thin;
         font-size: 18px;
         z-index: 1;
-        border: yellow solid;
+        // border: yellow solid;
 
         &::before {
             // 直線裝飾
@@ -171,7 +171,7 @@
 
     .swiper-button-next,
     .swiper-button-prev {
-        border: green solid;
+        // border: green solid;
         background-size: 30px 30px;
         top: 60%;
         width: 30px;
@@ -182,9 +182,10 @@
     }
 
     .swiper-button-prev {
-        border: rgb(58, 255, 40) solid;
-        left: 2%;
-        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23d4a024'%2F%3E%3C%2Fsvg%3E");
+        // border: rgb(58, 255, 40) solid;
+        top:92%;
+        left: 5%;
+        background-image: url(../images/index-arrow-prev.svg);
 
         &:hover {
             transform: translateX(-3px);
@@ -192,8 +193,9 @@
     }
 
     .swiper-button-next {
-        right: 2%;
-        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23d4a024'%2F%3E%3C%2Fsvg%3E");
+        top:92%;
+        right: 5%;
+        background-image: url(../images/index-arrow-next.svg);
 
         &:hover {
             transform: translateX(3px);
@@ -236,10 +238,10 @@
         }
 
         .swiper-button-prev {
-            border: rgb(99, 19, 19) solid;
+            // border: rgb(99, 19, 19) solid;
             top: 15%;
             left: auto;
-            right: 15%;
+            right: 7%;
             transform: rotate(90deg) translate(0, 10px);
 
             &:hover {
@@ -250,7 +252,7 @@
         .swiper-button-next {
             top: auto;
             bottom: 15%;
-            right: 15%;
+            right: 7%;
             transform: rotate(90deg) translate(0, 10px);
 
             &:hover {
@@ -275,6 +277,17 @@
                 right: 25%;
             }
         }
+        .swiper-button-prev {
+            // border: rgb(233, 243, 100) solid;
+            top: 15%;
+            left: auto;
+            right: 6%;
+        }
+        .swiper-button-next {
+            top: auto;
+            bottom: 15%;
+            right: 6%;
+            }
     }
 }
 // 輪播套件結束

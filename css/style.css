@@ -244,28 +244,6 @@ a {
   right: 10px;
   bottom: 10px;
 }
-@media (max-width:640px) {
-  #index .row1 {
-    flex-direction: column;
-    display: flex;
-  }
-  #index .row1 .row1-left {
-    flex: unset;
-    flex-direction: column;
-  }
-  #index .row1 .row1-left h1 {
-    writing-mode: unset;
-  }
-  #index .row1 .row1-left h2 {
-    writing-mode: unset;
-  }
-  #index .row2 .row2-left {
-    display: none;
-  }
-  #index .row2 .row2-right ul {
-    margin-right: 0 !important;
-  }
-}
 #index .row2 {
   display: flex;
   background-color: white;
@@ -324,6 +302,40 @@ a {
   color: white;
   background-position: left;
 }
+@media (max-width:1023px) {
+  #index .row1 .row1-left h1 {
+    margin-top: 50px;
+  }
+  #index .row1 .row1-right {
+    flex: 5;
+  }
+  #index .row2 .row2-right {
+    flex: 5;
+  }
+}
+@media (max-width:640px) {
+  #index .row1 {
+    border: solid red;
+    flex-direction: column;
+    display: flex;
+  }
+  #index .row1 .row1-left {
+    flex: unset;
+    flex-direction: column;
+  }
+  #index .row1 .row1-left h1 {
+    writing-mode: unset;
+  }
+  #index .row1 .row1-left h2 {
+    writing-mode: unset;
+  }
+  #index .row2 .row2-left {
+    display: none;
+  }
+  #index .row2 .row2-right ul {
+    margin-right: 0 !important;
+  }
+}
 
 /*專案經歷頁*/
 #project-header {
@@ -381,7 +393,6 @@ a {
 }
 #project-main .mainLeft .row1 > div .carousel {
   flex: 3.2;
-  background-image: url(../images/content-1-1.jpg);
   background-size: cover;
   background-position: center;
   height: 80%;
@@ -919,6 +930,27 @@ a {
   width: 100px;
   height: 75px;
   margin-right: 40px;
+  position: relative;
+}
+#menuOverlay-right .menu-wrap .col-pic .thumbnail-pic figure h3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(34, 34, 34, 0.6);
+  color: white;
+  font-weight: 300;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: 0.35s;
+  outline: #222222 2px solid;
+  outline-offset: -6px;
+}
+#menuOverlay-right .menu-wrap .col-pic .thumbnail-pic figure h3:hover {
+  opacity: 1;
 }
 #menuOverlay-right .menu-wrap .bg-menu {
   width: 700px;
@@ -985,6 +1017,22 @@ a {
   width: 100px;
   height: 75px;
   margin-right: 40px;
+  position: relative;
+}
+#menuOverlay-left .menu-wrap .col-pic .thumbnail-pic figure h3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(34, 34, 34, 0.6);
+  color: white;
+  opacity: 0;
+  transition: 0.35s;
+}
+#menuOverlay-left .menu-wrap .col-pic .thumbnail-pic figure h3:hover {
+  opacity: 1;
 }
 #menuOverlay-left .menu-wrap .bg-menu {
   width: 700px;

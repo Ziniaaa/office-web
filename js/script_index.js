@@ -1,7 +1,7 @@
 // 首頁輪播套件配置
 var timelineSwiper = new Swiper('.timeline .swiper-container', {
     direction: 'vertical',
-    loop: true,
+    loop: false,
     speed: 1600,
     // Swiper 3.4.2 的自動播放設置
     autoplay: 5000, // 設置停留時間為 5 秒
