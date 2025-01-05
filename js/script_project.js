@@ -161,7 +161,7 @@ $('.slider').each(function () {
                 } else {
                     move(0);
                 }
-            }, 1000);
+            }, 4000);
         }
     }
 
