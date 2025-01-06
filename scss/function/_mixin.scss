@@ -1,6 +1,6 @@
 // 較複雜或需要寫入變數的樣式程式碼放這裡
 // 搭配@include使用
-@use '.variables' as *;
+@use '../variables/' as *;
 
 @mixin menu-thumb{
     position: absolute;

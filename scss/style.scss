@@ -165,21 +165,22 @@
 
     @media ($mediaSm) {
         .row1 {
-            border: solid red;
-
             flex-direction: column;
             display: flex;
 
             .row1-left {
                 flex: unset;
                 flex-direction: column;
+                max-height: 150px;
 
                 h1 {
-                    writing-mode: unset
+                    writing-mode: unset;
+                    margin-top: 0;
+                    margin-bottom: 5px;
                 }
 
                 h2 {
-                    writing-mode: unset
+                    writing-mode: unset;
                 }
             }
         }
@@ -228,6 +229,16 @@
 
     .header-right {
         flex: 3;
+    }
+
+    @media ($media-ipadPro) {
+        .header-left {
+            flex: 2;
+
+            h2 {
+                margin-bottom: 15px;
+            }
+        }
     }
 }
 
@@ -299,8 +310,16 @@
                 }
 
                 .project-detail {
+
                     p {
-                        margin: 10px 0;
+                        margin-bottom: 10px;
+                    }
+
+                    .detail-note {
+                        display: inline;
+                        background-color: $gray-light;
+                        color: $gray-darker;
+                        font-size: $font-size-s;
                     }
                 }
 
@@ -362,7 +381,7 @@
 
             p {
                 margin: 0 10px;
-                color: $gray-normal;
+                color: $gray-light;
             }
 
             .project-list {
@@ -403,32 +422,11 @@
 }
 
 .tooltip {
-    color: red;
+    font-family: $font-family-zh-sans;
+    color: $gray-dark;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
     font-size: 14px;
-}
-
-.debug-hotspot {
-    position: absolute;
-    border: 2px solid rgba(255, 0, 0, 0.5);
-    background-color: rgba(255, 0, 0, 0.2);
-    pointer-events: none;
-    /* 確保不會干擾滑鼠事件 */
-    z-index: 100;
-
-    &::after {
-        content: attr(data-area);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        background-color: rgba(0, 0, 0, 0.7);
-        padding: 2px 6px;
-        border-radius: 3px;
-        font-size: 12px;
-    }
 }
 
 /*業務內容頁*/
@@ -456,6 +454,12 @@
                     letter-spacing: 5px;
                 }
             }
+
+            @media ($media-ipadPro) {
+                h2 {
+                    margin-bottom: 15px;
+                }
+            }
         }
 
         .header-right {
@@ -463,6 +467,7 @@
             min-width: 60px;
 
         }
+
     }
 
     #content-main {
@@ -499,10 +504,35 @@
                         max-width: 250px;
                         width: 18%;
 
-                        &:hover {
-                            img {
-                                filter: brightness(50%);
+
+
+                        figure {
+                            position: relative;
+                            display: flex;
+                            justify-content: center;
+
+                            p {
+                                position: absolute;
+                                align-self: start;
+                                margin-top: 30%;
+                                opacity: 0;
                             }
+
+                            &:hover {
+                                p {
+                                    opacity: 1;
+                                    color: white;
+                                    font-weight: $font-w-light;
+                                    letter-spacing: 2px;
+                                    cursor: pointer;
+                                }
+
+                                img {
+                                    cursor: pointer;
+                                    filter: brightness(50%);
+                                }
+                            }
+
                         }
 
                         img {
@@ -522,6 +552,38 @@
                             padding-left: 15px;
                             padding-right: 5px;
                             line-height: $font-size-xxl;
+                        }
+                    }
+                }
+
+                @media ($media-ipadPro) {
+                    .col-wrap {
+                        flex-direction: column;
+
+                        .col {
+                            display: flex;
+                            flex-direction: row;
+                            width: 100%;
+                            max-height: 200px;
+                            max-width: none;
+                            justify-content: center;
+                            align-items: center;
+
+                            h3 {
+                                -webkit-writing-mode: vertical-lr;
+                                writing-mode: vertical-lr;
+                                font-size: $font-size-xl;
+                                margin: 0 25px;
+                            }
+
+                            figure {
+                                height: 100%;
+
+                                img {
+                                    height: 100%;
+                                    aspect-ratio: 1/1;
+                                }
+                            }
                         }
                     }
                 }
@@ -550,7 +612,6 @@
 }
 
 /*關於建築師頁*/
-
 #about {
     @extend %bg-linear-left;
 
@@ -561,6 +622,18 @@
 
         .header-left {
             flex: 3;
+        }
+
+        @media ($media-ipadPro) {
+            .header-right {
+                h2 {
+                    margin-bottom: 15px;
+                }
+            }
+
+            .header-left {
+                flex: 2;
+            }
         }
 
         .header-right {
@@ -715,6 +788,35 @@
                     }
                 }
 
+                @media ($media-ipadPro) {
+                    .col-wrap {
+                        width: 100%;
+                        align-items: end;
+
+                        .col-1 {
+                            justify-content: center;
+                            margin-bottom: 50px;
+
+                            .carousel {
+                                max-width: 800px;
+                            }
+                        }
+
+                        .col-2 {
+                            position: absolute;
+                            top: 150px;
+                            right: 20%;
+                        }
+
+                        .col-3 {
+                            position: absolute;
+                            top: 150px;
+                            left: 10%;
+                            width: 500px;
+                        }
+                    }
+                }
+
                 @media ($mediaSm) {
                     .col-wrap {
                         flex-direction: column;
@@ -766,6 +868,14 @@
             flex: 1;
             min-width: 60px;
         }
+
+        @media ($media-ipadPro) {
+            .header-left {
+                h2 {
+                    margin-bottom: 15px;
+                }
+            }
+        }
     }
 
     #contact-main {
@@ -784,21 +894,20 @@
             flex: 22;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: start;
             color: $gray-normal;
+            padding: 8% 8%;
+            gap: 5%;
 
             .col-1 {
                 flex: 1;
-                // height: 80%;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                align-items: start;
                 gap: 20px;
-                padding-left: 100px;
+                height: 100%;
 
                 .col-1-wrap {
-
                     h3 {
                         font-size: $font-size-l;
                     }
@@ -809,96 +918,115 @@
 
                         li {
                             margin: 10px 0;
+                            display: flex;
+
+                            a {
+                                color: $gray-normal;
+                                text-decoration: underline solid 1px $gray-normal;
+
+                                &:hover {
+                                    cursor: pointer;
+                                }
+                            }
                         }
+
                     }
                 }
             }
 
-            .col-2 {
-                flex: 1;
+            .googleMap {
+                width: 100%;
+                max-width: 600px;
+                height: 100%;
+            }
+        }
+
+        .col-2 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h3 {
+                font-size: $font-size-l;
+                margin-bottom: 25px;
+            }
+
+            #contact-form {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                gap: 30px;
+                padding-right: 80px;
 
+                .form-row {
+                    display: flex;
+                    width: 100%;
 
-                h3 {
-                    font-size: $font-size-l;
-                    margin-bottom: 25px;
+                    label {
+                        flex: 1;
+                        text-align: end;
+                        margin-right: 15px;
+                    }
+
+                    input,
+                    textarea {
+                        flex: 4;
+                        width: 100%;
+                        color: black;
+                        font-size: $font-size-s;
+                        padding: 5px;
+                        outline-color: transparent;
+                        border-radius: 2pt;
+                        border: $gray-light solid 1px;
+
+                        &::placeholder {
+                            color: $gray-light;
+                            padding-left: 5px;
+                        }
+
+                        &:focus {
+                            box-shadow: 0 0 3px 2px $gray-light;
+                        }
+                    }
                 }
 
-                #contact-form {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 30px;
-                    padding-right: 90px;
 
-                    .form-row {
-                        display: flex;
-                        width: 100%;
+                #submit-btn {
+                    width: 70px;
+                    background-color: white;
+                    border: $gray-normal solid 1px;
+                    color: $gray-normal;
+                    margin-left: 90px;
 
-                        label {
-                            flex: 1;
-                            text-align: end;
-                            margin-right: 15px;
-                        }
+                }
 
-                        input,
-                        textarea {
-                            flex: 4;
-                            width: 100%;
-                            color: $gray-light;
-                            font-size: $font-size-s;
-                            padding: 5px;
-                            outline-color: transparent;
-                            border-radius: 2pt;
-                            border: $gray-light solid 1px;
-
-                            &::placeholder {
-                                color: $gray-light;
-                                padding-left: 5px;
-                            }
-
-                            &:focus {
-                                box-shadow: 0 0 3px 2px $gray-light;
-
-                            }
-                        }
-                    }
-
-
-                    #submit-btn {
-                        width: 70px;
-                        background-color: white;
-                        border: $gray-normal solid 1px;
-                        color: $gray-normal;
-                        margin-left: 90px;
-
-                    }
-
-                    small {
-                        font-size: $font-size-xs;
-                        color: $gray-bright;
-                    }
+                small {
+                    font-size: $font-size-xs;
+                    color: $gray-bright;
                 }
             }
-
         }
-    }
 
-    footer {
-        height: 65px;
-        @extend %bg-linear-left;
-        line-height: 65px;
-        text-align: center;
-        letter-spacing: .2rem;
-        border-top: $gray-light 2px solid;
-        color: $gray-normal;
-        font-family: $font-family-zh;
     }
 }
+
+footer {
+    height: 65px;
+    @extend %bg-linear-left;
+    line-height: 65px;
+    text-align: center;
+    letter-spacing: .2rem;
+    border-top: $gray-light 2px solid;
+    color: $gray-normal;
+    font-family: $font-family-zh;
+
+    small {
+        font-size: $font-size-xs;
+    }
+}
+
 
 /*選單面板*/
 #menuOverlay-right {
@@ -929,8 +1057,6 @@
         background-repeat: no-repeat;
         display: flex;
         position: relative;
-
-
 
         .col-page {
             // border: solid lawngreen;
@@ -1045,8 +1171,6 @@
         display: flex;
         position: relative;
 
-
-
         .col-page {
             // border: solid lawngreen;
             flex: 1;
@@ -1130,37 +1254,135 @@
     }
 }
 
+@media ($media-ipadPro) {
+    #menuOverlay-right {
+
+        .menu-wrap {
+            background-position: left;
+            background-repeat: repeat-y;
+            flex-direction: column;
+            width: 30%;
+
+            .col-page {
+                height: 100%;
+                margin-top: 10%;
+
+                ul {
+                    height: 100%;
+                }
+            }
+
+            .col-pic {
+                .thumbnail-pic {
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 0;
+
+                    figure {
+                        width: 50%;
+                        height: auto;
+                        margin: 15px 0;
+                    }
+                }
+            }
+
+            .ham-inside-R {
+                order: -1;
+                align-self: flex-end;
+            }
+        }
+    }
+
+    #menuOverlay-left {
+        .menu-wrap {
+            background-position: left;
+            background-repeat: repeat-y;
+            flex-direction: column;
+            width: 30%;
+
+            .col-page {
+                height: 100%;
+                margin-top: 0;
+                display: flex;
+                flex-direction: column;
+
+                ul {
+                    height: 100%;
+                }
+            }
+
+            .col-pic {
+                .thumbnail-pic {
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 0;
+
+                    figure {
+                        width: 50%;
+                        height: auto;
+                        margin: 15px 0;
+                    }
+                }
+            }
+
+            .ham-inside-L {
+                order: -1;
+                align-self: flex-start;
+            }
+        }
+    }
+}
+
+@media ($mediaSm) {
+
+    #menuOverlay-right,
+    #menuOverlay-left {
+        .menu-wrap {
+            width: 80%;
+
+            .col-page {
+                min-width: none;
+                height: 100%;
+
+                ul {
+                    height: 280px;
+                }
+            }
+
+            .col-pic {
+                margin: 0 20px;
+
+                .thumbnail-pic {
+                    flex-direction: row;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    gap: 10%;
+
+                    figure {
+                        width: 100px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
 .hamburger {
     // 修改button預設樣式
-    // outline:solid yellow;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    margin: 5px;
 
     .bar {
         display: block;
         width: 24px;
         height: 3px;
-        background-color: $gray-dark;
+        background-color: $gray-normal;
         margin: 5px auto;
         transition: 0.35s; //漢堡動畫
     }
-
-    // &.is-active {
-    //     .bar {
-    //         &:nth-child(1) {
-    //             transform: rotate(45deg) translateY(6px) translateX(5px);
-    //         }
-
-    //         &:nth-child(2) {
-    //             opacity: 0;
-    //         }
-
-    //         &:nth-child(3) {
-    //             transform: rotate(-45deg) translateY(-6px)translateX(5px);
-    //         }
-    //     }
-    // }
 }
 
 .mainLeft {
@@ -1174,14 +1396,14 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    margin: 0 25px;
+    margin: 5px 20px;
     align-self: self-start;
 
     .bar {
         display: block;
         width: 24px;
         height: 3px;
-        background-color: $gray-dark;
+        background-color: $gray-normal;
         margin: 5px auto;
         transition: 0.35s; //漢堡動畫
     }
@@ -1199,8 +1421,6 @@
             transform: rotate(-45deg) translateY(-6px)translateX(5px);
         }
     }
-
-    &.is-active {}
 }
 
 .ham-inside-L {
@@ -1208,14 +1428,14 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    margin: 0 25px;
+    margin: 5px 20px;
 
 
     .bar {
         display: block;
         width: 24px;
         height: 3px;
-        background-color: $gray-dark;
+        background-color: $gray-normal;
         margin: 5px auto;
         transition: 0.35s; //漢堡動畫
     }
@@ -1233,6 +1453,31 @@
             transform: rotate(-45deg) translateY(-6px)translateX(5px);
         }
     }
+}
 
-    &.is-active {}
+/*RWD共用區*/
+@media ($media-ipadPro) {
+
+    #project,
+    #content,
+    #about,
+    #contact {
+        background-repeat: repeat-y;
+
+        #mainLeft,
+        #mainRight {
+            background-repeat: repeat-y;
+        }
+
+        #content-main,
+        #about-main {
+            .middle {
+
+                .mainRight,
+                .mainLeft {
+                    background-repeat: repeat-y;
+                }
+            }
+        }
+    }
 }

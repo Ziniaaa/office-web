@@ -55,6 +55,6 @@ $border-r-l:16px;
 //RWD斷點
 $mediaSm:'max-width:640px';
 $mediaSmUp:'min-width:641px'; //非手機版時的樣式(手機版和桌機版完全不同樣式的時候使用)
-$mediaMdDown: 'max-width:1024px';
 $mediaMd:'max-width:1023px';
-$mediaLg:'min-width:1024px';
+$media-ipadPro:'max-width:1024px';
+$mediaLg:'min-width:1025px';

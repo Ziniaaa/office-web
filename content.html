@@ -41,11 +41,21 @@
                 </div>
                 <div class="col-pic">
                     <div class="thumbnail-pic">
-                        <figure> <h3>大同公園<br>地下穿越道</h3><img src="./images/menu-1.jpg" alt=""></figure>
-                        <figure><h3>中山路<br>連棟住宅</h3><img src="./images/menu-2.jpg" alt=""></figure>
-                        <figure><h3>銓順辦公大樓<br>大廳</h3><img src="./images/menu-3.jpg" alt=""></figure>
-                        <figure><h3>藝文二街<br>公寓外牆</h3><img src="./images/menu-4.jpg" alt=""></figure>
-                        <figure><h3>文昌圖書館</h3><img src="./images/menu-5.jpg" alt=""></figure>
+                        <figure>
+                            <h3>大同公園<br>地下穿越道</h3><img src="./images/menu-1.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <h3>中山路<br>連棟住宅</h3><img src="./images/menu-2.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <h3>銓順辦公大樓<br>大廳</h3><img src="./images/menu-3.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <h3>藝文二街<br>公寓外牆</h3><img src="./images/menu-4.jpg" alt="">
+                        </figure>
+                        <figure>
+                            <h3>文昌圖書館</h3><img src="./images/menu-5.jpg" alt="">
+                        </figure>
                     </div>
                 </div>
                 <img class="bg-menu" src="./images/bg-menu.png" alt="">
@@ -66,7 +76,10 @@
             <div class="mainRight">
                 <div class="col-wrap">
                     <div class="col col-1">
-                        <figure><img src="./images/content-1-1.jpg" alt=""></figure>
+                        <figure>
+                            <img src="./images/content-1-1.jpg" data-message="我想了解更多關於業務內容一：..." alt="">
+                            <p>| 點擊立刻詢問細節 |</p>
+                        </figure>
                         <h3>業務內容一</h3>
                         <article>
                             Lorem ipsum <br>
@@ -78,7 +91,9 @@
                     </div>
 
                     <div class="col col-2">
-                        <figure><img src="./images/content-2-1.jpg" alt=""></figure>
+                        <figure><img src="./images/content-2-1.jpg" data-message="我想詢問關於業務內容二的細節：..." alt="">
+                            <p>| 點擊立刻詢問細節 |</p>
+                        </figure>
                         <h3>業務內容二</h3>
                         <article>
                             Lorem ipsum <br>
@@ -90,7 +105,9 @@
                     </div>
 
                     <div class="col col-3">
-                        <figure><img src="./images/content-3-1.jpg" alt=""></figure>
+                        <figure><img src="./images/content-3-1.jpg" data-message="關於業務內容三，我有以下問題需要諮詢：..." alt="">
+                            <p>| 點擊立刻詢問細節 |</p>
+                        </figure>
                         <h3>業務內容三</h3>
                         <article>
                             Lorem ipsum <br>
@@ -113,6 +130,16 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./js/script_JQ.js"> </script>
+    <!-- 連結contact頁面 -->
+    <script>
+        $(document).ready(function () {
+            // 為圖片添加點擊事件
+            $('.col figure img').click(function () {
+                const message = $(this).data('message');
+                window.location.href = `contact.html?content=${encodeURIComponent(message)}`;
+            });
+        });
+    </script>
 </body>
 
 </html>

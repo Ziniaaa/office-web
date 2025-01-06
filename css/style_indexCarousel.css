@@ -41,23 +41,23 @@
   content: "";
   position: absolute;
   z-index: 1;
-  right: -115%;
-  bottom: -10%;
+  right: 0%;
+  bottom: -70%;
   width: 100%;
   height: 100%;
-  background-color: rgba(58, 58, 58, 0.8);
-  box-shadow: -230px 0 50px 30vw rgba(89, 226, 55, 0.9);
+  background-color: rgba(58, 58, 58, 0.4);
+  box-shadow: -200px 0 50px 30vw rgba(58, 58, 58, 0.4);
+  rotate: 90deg;
   border-radius: 100%;
 }
 .timeline .swiper-slide-content {
   font-family: "Lucida Sans", sans-serif;
-  border: lavender solid;
   position: absolute;
   text-align: center;
   width: 80%;
   max-width: 310px;
   right: 50%;
-  top: 13%;
+  top: 60%;
   transform: translate(50%, 0);
   font-size: 12px;
   z-index: 2;
@@ -65,11 +65,10 @@
 .timeline .swiper-slide .timeline-year {
   font-family: "Noto Sans TC", sans-serif;
   font-weight: 500;
-  border: blue solid;
   display: block;
   font-style: italic;
-  font-size: 42px;
-  margin-bottom: 50px;
+  font-size: 32px;
+  margin-bottom: 10px;
   transform: translate3d(20px, 0, 0);
   color: #F5F5F5;
   opacity: 0;
@@ -77,8 +76,8 @@
 }
 .timeline .swiper-slide .timeline-title {
   font-weight: 800;
-  font-size: 34px;
-  margin: 0 0 30px;
+  font-size: 24px;
+  margin: 0 0 10px;
   opacity: 0;
   transform: translate3d(20px, 0, 0);
   transition: 0.2s ease 0.5s;
@@ -180,14 +179,16 @@
 }
 @media screen and (min-width:641px) {
   .timeline .swiper-slide::after {
-    right: -30%;
-    bottom: -8%;
-    width: 240px;
-    height: 50%;
-    box-shadow: -230px 0 150px 50vw rgba(212, 16, 16, 0.7);
+    right: -60%;
+    bottom: 25vh;
+    width: 140px;
+    height: 120%;
+    background-color: rgba(58, 58, 58, 0.6);
+    box-shadow: -230px 0 150px 50vw rgba(58, 58, 58, 0.6);
+    rotate: 0deg;
   }
   .timeline .swiper-slide-content {
-    right: 30%;
+    right: 23%;
     top: 50%;
     transform: translateY(-50%);
     width: 310px;
@@ -224,17 +225,17 @@
     transform: rotate(90deg) translate(3px, 10px);
   }
 }
-@media screen and (min-width:1024px) {
+@media screen and (min-width: 1025px) {
   .timeline .swiper-slide::after {
     right: -40%;
     bottom: -12%;
     width: 240px;
     height: 50%;
+    background-color: rgba(58, 58, 58, 0.7);
     box-shadow: -230px 0 150px 39vw rgba(58, 58, 58, 0.7);
   }
   .timeline .swiper-slide-content {
-    border: solid saddlebrown;
-    right: 25%;
+    right: 17%;
   }
   .timeline .swiper-button-prev {
     top: 15%;

@@ -50,6 +50,23 @@ $(function () {
                 // 更新列表項目狀態
                 updateProjectListStatus(index);
                 sessionStorage.removeItem('selectedProject');
+            } else {
+                // 首次載入時的預設狀態
+                const $firstContent = $('.row1 > div').first();
+                const $firstListItem = $('.project-list li').first();
+                
+                // 確保其他內容區塊處於正確的初始狀態
+                $('.row1 > div').not($firstContent)
+                    .removeClass('show')
+                    .addClass('wait-right');
+                
+                // 顯示第一個內容區塊
+                $firstContent.addClass('show')
+                    .removeClass('wait-right hide-left');
+                
+                // 設置第一個列表項為 active
+                $firstListItem.addClass('active')
+                    .siblings().removeClass('active');
             }
         }
     }
@@ -139,6 +156,6 @@ $(function () {
     updateProjectListStatus(index);
 });
 
-    // 頁面加載時初始化
+    // 頁面加載時初始化，確保在所有其他初始化完成後再執行
     initProjectPage();
 });

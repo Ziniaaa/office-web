@@ -66,21 +66,29 @@
                 <div class="col-1-wrap">
                     <h3>聯絡我們</h3>
                     <ul>
-                        <li>聯絡電話：<span>03-123-4567</span></li>
+                        <li>聯絡電話：<a href="tel:+886-3-1234567">03-123-4567</a></li>
                         <li>傳真號碼：03-987-6543</li>
-                        <li>電子信箱：<span>architect@gmail.com</span></li>
-                        <li>地址：桃園市桃園區民權路147號</li>
+                        <li class="emailTo">電子信箱：<a href="mailto:architect@gmail.com">architect@gmail.com</a></li>
+                        <li class="address">地址：<a href="https://maps.app.goo.gl/oZPYVUyAonq5be8T9">桃園市桃園區民權路147號</a></li>
                     </ul>
-                    <iframe 
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD9VHp2OTLg_vpCJ4ifoUt33t0TCD8UCiI&q=24.991658,121.311109" 
-                    width="600" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
+                </div>
+                <div class="googleMap">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3040.890725694656!2d121.31167175728734!3d24.991657519730122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1736181447097!5m2!1szh-TW!2stw" 
+                width="100%" height="100%" style="border:0;" 
+                allowfullscreen="" loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
                 </div>
+                
+                <!-- <iframe 
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD9VHp2OTLg_vpCJ4ifoUt33t0TCD8UCiI&q=24.991658,121.311109" 
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe> -->
             </div>
             <div class="col-2">
                 <h3>業務聯繫</h3>
@@ -114,6 +122,17 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./js/script_JQ.js"> </script>
+    <!-- 接收content頁面內容 -->
+    <script>
+        $(document).ready(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const content = urlParams.get('content');
+    
+    if (content) {
+        $('#comment').val(decodeURIComponent(content));
+    }
+});
+    </script>
 </body>
 
 </html>

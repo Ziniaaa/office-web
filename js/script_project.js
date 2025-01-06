@@ -1,78 +1,80 @@
 // -------------設定和常數-------------
+// carousel圖片熱點位置
 const hotspotsConfig = {
     'row1-1': {
         0: [
             {
-                area: { xStart: 20, yStart: 30, xEnd: 40, yEnd: 50 },
-                text: 'A區域文字'
+                area: { xStart: 20, yStart: 55, xEnd: 40, yEnd: 75 },
+                text: '排柵支撐提供穩固防震力'
             },
             {
-                area: { xStart: 60, yStart: 40, xEnd: 80, yEnd: 60 },
-                text: 'A-2區域文字'
+                area: { xStart: 50, yStart: 27, xEnd: 70, yEnd: 47 },
+                text: '弧形造型與間接光源，擴展空間感'
             }
         ],
-        1: [
-            {
-                area: { xStart: 30, yStart: 30, xEnd: 50, yEnd: 50 },
-                text: 'B區域文字'
-            }
-        ]
+        // 1: [
+        //     {
+        //         area: { xStart: 30, yStart: 30, xEnd: 50, yEnd: 50 },
+        //         text: 'B區域文字'
+        //     }
+        // ]
     },
     'row1-2': {
         0: [
             {
-                area: { xStart: 20, yStart: 30, xEnd: 40, yEnd: 50 },
-                text: 'C區域文字'
+                area: { xStart: 13, yStart: 34, xEnd: 33, yEnd: 54 },
+                text: '陽台側面簍空，改善通風'
             },
             {
-                area: { xStart: 60, yStart: 40, xEnd: 80, yEnd: 60 },
-                text: 'C-2區域文字'
+                area: { xStart: 70, yStart: 30, xEnd: 80, yEnd: 65 },
+                text: '內凹溝槽加速壁面排水'
             }
         ],
-        1: [
-            {
-                area: { xStart: 30, yStart: 30, xEnd: 50, yEnd: 50 },
-                text: 'D區域文字'
-            }
-        ]
+        // 1: [
+        //     {
+        //         area: { xStart: 30, yStart: 30, xEnd: 50, yEnd: 50 },
+        //         text: 'D區域文字'
+        //     }
+        // ]
     },
     'row1-3': {
         0: [
             {
                 area: { xStart: 20, yStart: 30, xEnd: 40, yEnd: 50 },
-                text: 'E區域文字'
+                text: '交差結構以利陽光折射，增加室內自然光線'
             }
         ],
-        1: [
-            {
-                area: { xStart: 30, yStart: 30, xEnd: 50, yEnd: 50 },
-                text: 'F區域文字'
-            },
-            {
-                area: { xStart: 60, yStart: 40, xEnd: 80, yEnd: 60 },
-                text: 'G區域文字'
-            }
-        ]
+        // 1: [
+        //     {
+        //         area: { xStart: 30, yStart: 30, xEnd: 50, yEnd: 50 },
+        //         text: 'F區域文字'
+        //     }
+        // ]
     },
     'row1-4': {
         0: [
             {
-                area: { xStart: 20, yStart: 30, xEnd: 40, yEnd: 50 },
-                text: 'H區域文字'
+                area: { xStart: 30, yStart: 20, xEnd: 40, yEnd: 75 },
+                text: '上下提拉窗便於通風'
             }
         ]
     },
     'row1-5': {
         0: [
             {
-                area: { xStart: 20, yStart: 30, xEnd: 40, yEnd: 50 },
-                text: 'I區域文字'
+                area: { xStart: 30, yStart: 32, xEnd: 45, yEnd: 85 },
+                text: '玻璃光塔增加室內自然光'
+            },
+            {
+                area: { xStart: 60, yStart: 1, xEnd: 80, yEnd: 85 },
+                text: '外牆鑲嵌特殊形狀金屬板'
             }
         ]
     }
 };
 
 // -------------輔助函數-------------
+// 優化 resize 事件處理
 function debounce(func, wait) {
     let timeout;
     return function () {
@@ -86,6 +88,7 @@ function debounce(func, wait) {
 }
 
 // -------------核心功能函數-------------
+// 計算實際熱點位置的函數
 function calculateHotspotPosition(hotspot, $image) {
     const imageWidth = $image.width();
     const imageHeight = $image.height();
@@ -98,6 +101,7 @@ function calculateHotspotPosition(hotspot, $image) {
     };
 }
 
+// 在適當的位置添加發光熱點元素
 function addHotspotHighlights($slide, hotspots) {
     $slide.find('.hotspot-highlight').remove();
     if (!hotspots) return;
@@ -114,8 +118,6 @@ function addHotspotHighlights($slide, hotspots) {
                 width: (pos.x2 - pos.x1) + 'px',
                 height: (pos.y2 - pos.y1) + 'px',
                 borderRadius: '4px',
-                background: 'rgba(255, 255, 255, 0.3)',
-                boxShadow: '0 0 10px rgba(255, 255, 255, 0.5)',
                 transition: 'all 0.3s ease',
                 opacity: '0',
                 pointerEvents: 'none'
@@ -124,6 +126,7 @@ function addHotspotHighlights($slide, hotspots) {
     });
 }
 
+// 更新所有輪播的熱點顯示
 function updateAllHotspotHighlights() {
     $('[class^="row1-"] .slider .slide').each(function () {
         const $slide = $(this);
@@ -134,6 +137,7 @@ function updateAllHotspotHighlights() {
     });
 }
 
+// 箭頭左右距離依視窗調整
 function updateArrowsWidth() {
     $('.carousel').each(function () {
         var $carousel = $(this);
@@ -152,6 +156,8 @@ const handleResize = debounce(function() {
     }
 }, 150);
 
+// -------------輪播核心功能-------------
+// carousel slide輪播功能
 function initializeCarousel($slider) {
     var $group = $slider.find('.slide_group');
     var $slides = $slider.find('.slide');
@@ -163,7 +169,7 @@ function initializeCarousel($slider) {
     // 檢查是在哪個row中的輪播
     const rowClass = $slider.closest('[class^="row1-"]').attr('class').split(' ')[0];
 
-    // (舊保留)確保每個輪播只有一個 tooltip
+    // 確保每個輪播只有一個 tooltip
     if ($('.tooltip').length === 0) {
         $('body').append(`
             <div class="tooltip" style="display: none; position: fixed; padding: 8px; background: white; border: 1px solid #ccc; pointer-events: none; z-index: 1000;">
@@ -173,7 +179,7 @@ function initializeCarousel($slider) {
     }
     const $tooltip = $('.tooltip');
 
-    // -------------輪播核心功能-------------
+    // slide動作
     function move(newIndex) {
         var animateLeft, slideLeft;
 
@@ -217,7 +223,7 @@ function initializeCarousel($slider) {
     }
 
     // -------------事件處理器-------------
-    // 滑鼠移動事件處理
+    // 滑鼠移動事件處理(圖片暫停、顯示tooltip與熱點)
     $slides.on('mousemove', function (e) {
         const slideIndex = $(this).index();
         const hotspots = hotspotsConfig[rowClass]?.[slideIndex];
@@ -238,16 +244,16 @@ function initializeCarousel($slider) {
         // 更新所有熱點的視覺效果
         $(this).find('.hotspot-highlight').css({
             opacity: '1',
-            background: 'rgba(255, 255, 255, 0.1)',
-            boxShadow: '0 0 10px rgba(255, 255, 255, 0.3)',
+            background: 'rgba(255, 255, 255, 0.5)',
+            boxShadow: '0 0 10px rgba(255, 255, 255, 0.4)',
         });
 
         // 更新活動熱點的視覺效果
         if (activeHotspot) {
             $(this).find('.hotspot-highlight').eq(hotspots.indexOf(activeHotspot)).css({
                 background: 'rgba(255, 255, 255, 0.2)',
-                boxShadow: '0 0 15px rgba(255, 255, 255, 0.5)',
-                border: 'solid white 1px'
+                boxShadow: '0 0 15px rgba(255, 255, 255, 0.6)',
+                border: 'solid white 1.5px',
             });
             
             // 顯示tooltip
@@ -292,7 +298,7 @@ function initializeCarousel($slider) {
         'left': 0
     });
 
-    // 創建導航點
+    // 依照不同案件項目創建carousel導航點
     var $slideButtons = $('<div class="slide_buttons"></div>');
     $slider.append($slideButtons);
 
