@@ -1026,10 +1026,15 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   background-color: rgba(34, 34, 34, 0.6);
   color: white;
+  font-weight: 300;
+  font-size: 0.8rem;
   opacity: 0;
   transition: 0.35s;
+  outline: #222222 2px solid;
+  outline-offset: -6px;
 }
 #menuOverlay-left .menu-wrap .col-pic .thumbnail-pic figure h3:hover {
   opacity: 1;

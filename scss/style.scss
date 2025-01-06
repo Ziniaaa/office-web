@@ -994,21 +994,7 @@
                     // border: solid lightsalmon;
 
                     h3 {
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        text-align: center;
-                        background-color: rgb(34, 34, 34, .6);
-                        color: white;
-                        font-weight: $font-w-light;
-                        font-size: $font-size-s;
-                        opacity: 0;
-                        transition: $speed-fast;
-                        outline: $gray-darker 2px solid;
-                        outline-offset: -6px;
+                        @include menu-thumb;
 
                         &:hover {
                             opacity: 1;
@@ -1122,16 +1108,7 @@
                     position: relative;
 
                     h3 {
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        background-color: rgb(34, 34, 34, .6);
-                        color: white;
-                        opacity: 0;
-                        transition: $speed-fast;
+                        @include menu-thumb;
 
                         &:hover {
                             opacity: 1;
