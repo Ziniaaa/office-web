@@ -334,8 +334,16 @@ a {
   #index .row2 .row2-left {
     display: none;
   }
+  #index .row2 .row2-right {
+    justify-content: center;
+  }
   #index .row2 .row2-right ul {
+    width: 100%;
     margin-right: 0 !important;
+    justify-content: space-around;
+  }
+  #index .row2 .row2-right ul li a {
+    margin: 0;
   }
 }
 
@@ -459,6 +467,9 @@ a {
   #project-main .mainLeft .row1 > div .projectContent {
     flex: 1;
     margin-bottom: 0;
+    overflow: scroll;
+    z-index: 100;
+    padding-top: 30px;
   }
   #project-main .mainLeft .row1 > div .projectContent .project-intro {
     margin-bottom: 15px;
@@ -521,7 +532,7 @@ a {
   #project-main .mainLeft .row1-3 .carousel,
   #project-main .mainLeft .row1-4 .carousel,
   #project-main .mainLeft .row1-5 .carousel {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     width: 100%;
   }
 }
@@ -715,6 +726,7 @@ a {
 @media (max-width:640px) {
   #content #content-main .middle .mainRight .col-wrap {
     padding: 0 10px;
+    overflow: scroll;
   }
   #content #content-main .middle .mainRight .col-wrap .col h3 {
     margin: 0 10px;
@@ -918,7 +930,7 @@ a {
   #about #about-main .middle .mainLeft .col-wrap {
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
+    overflow: scroll;
   }
   #about #about-main .middle .mainLeft .col-wrap .col-2 {
     order: -1;
