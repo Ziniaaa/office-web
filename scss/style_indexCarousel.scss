@@ -86,6 +86,8 @@
             opacity: 0;
             transform: translate3d(20px, 0, 0);
             transition: .2s ease .6s;
+            display: none;
+
         }
 
         &-active {
@@ -233,6 +235,9 @@
             .timeline-title {
                 font-size: 46px;
                 margin: 0;
+            }
+            .timeline-text {
+                display: block;
             }
 
             &-active {
