@@ -34,25 +34,25 @@
             position: absolute;
             z-index: 1;
             right: 0%;
-            bottom: -70%;
+            bottom: -80%;
             width: 100%;
             height: 100%;
-            background-color: rgba($gray-dark, .4);
-            box-shadow: -200px 0 50px 30vw rgba($gray-dark, .4);
+            background-color: rgba($gray-dark, .3);
+            box-shadow: -200px 0 50px 30vw rgba($gray-dark, .3);
             rotate: 90deg;
             border-radius: 100%;
         }
 
         &-content {
             // 排文字區
-            font-family: 'Lucida Sans',  sans-serif;
+            font-family: 'Lucida Sans', sans-serif;
             // border: lightcoral solid;
             position: absolute;
             text-align: center;
             width: 80%;
             max-width: 310px;
             right: 50%;
-            top: 60%;
+            bottom: 10%;
             transform: translate(50%, 0);
             font-size: 12px;
             z-index: 2;
@@ -105,6 +105,7 @@
                 opacity: 1;
                 transform: translate3d(0, 0, 0);
                 transition: .4s ease 1.8s;
+                display: none;
             }
         }
     }
@@ -142,7 +143,7 @@
             background: transparent;
             color: $gray-brighter;
             margin: 15px 0 !important;
-            
+
             position: relative;
 
             &::before {
@@ -183,7 +184,7 @@
 
     .swiper-button-prev {
         // border: rgb(58, 255, 40) solid;
-        top:92%;
+        top: 92%;
         left: 5%;
         background-image: url(../images/index-arrow-prev.svg);
 
@@ -193,7 +194,7 @@
     }
 
     .swiper-button-next {
-        top:92%;
+        top: 92%;
         right: 5%;
         background-image: url(../images/index-arrow-next.svg);
 
@@ -214,7 +215,7 @@
                 box-shadow: -230px 0 150px 50vw rgba($gray-dark, .6);
                 rotate: 0deg;
             }
-            
+
             &-content {
                 right: 23%;
                 top: 50%;
@@ -232,6 +233,12 @@
             .timeline-title {
                 font-size: 46px;
                 margin: 0;
+            }
+
+            &-active {
+                .timeline-text {
+                    display: block;
+                }
             }
         }
 
@@ -280,17 +287,20 @@
                 right: 17%;
             }
         }
+
         .swiper-button-prev {
             // border: rgb(233, 243, 100) solid;
             top: 15%;
             left: auto;
             right: 6%;
         }
+
         .swiper-button-next {
             top: auto;
             bottom: 15%;
             right: 6%;
-            }
+        }
     }
 }
+
 // 輪播套件結束
