@@ -192,12 +192,14 @@
 
             .row2-right {
                 justify-content: center;
+
                 ul {
                     width: 100%;
                     margin-right: 0 !important;
                     justify-content: space-around;
-                    li{
-                        a{
+
+                    li {
+                        a {
                             margin: 0;
                         }
                     }
@@ -347,6 +349,27 @@
                         color: $gray-darker;
                         font-size: $font-size-s;
                     }
+
+                    .detail-note-mobile {
+                        display: none;
+                        background-color: $gray-light;
+                        color: $gray-darker;
+                        font-size: $font-size-s;
+                    }
+                }
+
+                @media ($media-ipadPro) {
+                    .projectContent {
+                        .project-detail {
+                            .detail-note {
+                                display: none;
+                            }
+
+                            .detail-note-mobile {
+                                display: inline;
+                            }
+                        }
+                    }
                 }
 
                 @media ($mediaSm) {
@@ -354,8 +377,9 @@
                         flex: 1;
                         margin-bottom: 0;
                         overflow: scroll;
-z-index: 100;
-padding-top: 30px;
+                        z-index: 100;
+                        padding-top: 30px;
+
                         .project-intro {
                             margin-bottom: 15px;
                         }
@@ -367,6 +391,10 @@ padding-top: 30px;
 
                             .detail-note {
                                 display: none;
+                            }
+
+                            .detail-note-mobile {
+                                display: inline;
                             }
                         }
 
@@ -689,7 +717,8 @@ padding-top: 30px;
                 @media ($mediaSm) {
                     .col-wrap {
                         padding: 0 10px;
-overflow: scroll;
+                        overflow: scroll;
+
                         .col {
                             h3 {
                                 margin: 0 10px;
@@ -1188,7 +1217,8 @@ overflow: scroll;
                                 font-size: $font-size-s;
                             }
                         }
-                        #submit-btn{
+
+                        #submit-btn {
                             margin: 5px 0;
                         }
                     }

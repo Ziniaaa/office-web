@@ -463,6 +463,20 @@ a {
   color: #222222;
   font-size: 0.8rem;
 }
+#project-main .mainLeft .row1 > div .project-detail .detail-note-mobile {
+  display: none;
+  background-color: #C0C0C0;
+  color: #222222;
+  font-size: 0.8rem;
+}
+@media (max-width:1024px) {
+  #project-main .mainLeft .row1 > div .projectContent .project-detail .detail-note {
+    display: none;
+  }
+  #project-main .mainLeft .row1 > div .projectContent .project-detail .detail-note-mobile {
+    display: inline;
+  }
+}
 @media (max-width:640px) {
   #project-main .mainLeft .row1 > div .projectContent {
     flex: 1;
@@ -479,6 +493,9 @@ a {
   }
   #project-main .mainLeft .row1 > div .projectContent .project-detail .detail-note {
     display: none;
+  }
+  #project-main .mainLeft .row1 > div .projectContent .project-detail .detail-note-mobile {
+    display: inline;
   }
   #project-main .mainLeft .row1 > div .projectContent h2 {
     position: relative;
