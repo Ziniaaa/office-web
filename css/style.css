@@ -1385,13 +1385,13 @@ footer small {
     width: 100px;
   }
 }
-.hamburger {
+.hamburgerR, .hamburgerL {
   background-color: transparent;
   border: none;
   cursor: pointer;
   margin: 5px;
 }
-.hamburger .bar {
+.hamburgerR .bar, .hamburgerL .bar {
   display: block;
   width: 24px;
   height: 3px;
