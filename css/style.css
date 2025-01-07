@@ -1133,6 +1133,7 @@ footer small {
   display: flex;
   justify-content: end;
   overflow: hidden;
+  display: none;
   animation: hide 0.35s both;
 }
 #menuOverlay-right.show {
@@ -1220,6 +1221,7 @@ footer small {
   display: flex;
   justify-content: start;
   overflow: hidden;
+  display: none;
   animation: hide 0.35s both;
 }
 #menuOverlay-left.show {
@@ -1385,13 +1387,13 @@ footer small {
     width: 100px;
   }
 }
-.hamburgerR, .hamburgerL {
+.hamburger {
   background-color: transparent;
   border: none;
   cursor: pointer;
   margin: 5px;
 }
-.hamburgerR .bar, .hamburgerL .bar {
+.hamburger .bar {
   display: block;
   width: 24px;
   height: 3px;

@@ -1216,7 +1216,7 @@ footer {
     display: flex;
     justify-content: end;
     overflow: hidden;
-    // display: none;
+    display: none;
     animation: hide .35s both;
 
     &.show {
@@ -1329,7 +1329,7 @@ footer {
     display: flex;
     justify-content: start;
     overflow: hidden;
-    // display: none;
+    display: none;
     animation: hide .35s both;
 
     &.show {
@@ -1544,7 +1544,7 @@ footer {
     }
 }
 
-.hamburgerR,.hamburgerL {
+.hamburger {
     // 修改button預設樣式
     background-color: transparent;
     border: none;

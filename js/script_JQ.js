@@ -1,51 +1,40 @@
 // jQuery
 $(function () {
-     // 漢堡按鈕-右側
-     $('.hamburgerR').on('click', function (e) {
-        e.stopPropagation(); // 防止事件冒泡
-        $('#menuOverlay-right').toggleClass('show');
+    // 漢堡按鈕-右
+    $('.hamburger').click(function () {
         $(this).toggleClass('is-active');
+        $('#menuOverlay-right').toggleClass('show');
     });
 
-    $('.ham-inside-R').on('click', function (e) {
-        e.stopPropagation(); // 防止事件冒泡
-        $('#menuOverlay-right').toggleClass('show');
+    $('.ham-inside-R').click(function () {
         $(this).toggleClass('is-active');
+        $('#menuOverlay-right').toggleClass('show');
     });
 
-    // 漢堡按鈕-左側
-    $('.ham-inside-L').on('click', function (e) {
-        e.stopPropagation(); // 防止事件冒泡
-        $('#menuOverlay-left').toggleClass('show');
+    // 漢堡按鈕-左
+    $('.hamburger').click(function () {
         $(this).toggleClass('is-active');
+        $('#menuOverlay-left').toggleClass('show');
     });
-    $('.hamburgerL').on('click', function (e) {
-        e.stopPropagation(); // 防止事件冒泡
-        $('#menuOverlay-left').toggleClass('show');
+
+    $('.ham-inside-L').click(function () {
         $(this).toggleClass('is-active');
+        $('#menuOverlay-left').toggleClass('show');
     });
 
     // 點擊導覽列外關閉
-    $(document).on('click', function (e) {
-        // 檢查點擊的目標是否為menuOverlay或其內部元素
-        if ($('#menuOverlay-right').hasClass('show') && 
-            !$(e.target).closest('.menu-wrap').length && 
-            !$(e.target).closest('.hamburger').length) {
-            $('#menuOverlay-right').removeClass('show');
+    $('#menuOverlay-right').click(function (e) {
+        if ($(e.target).is('#menuOverlay-right')) {
+            $(this).toggleClass('show');
             $('.hamburger, .ham-inside-R').removeClass('is-active');
-        }
-
-        if ($('#menuOverlay-left').hasClass('show') && 
-            !$(e.target).closest('.menu-wrap').length && 
-            !$(e.target).closest('.ham-inside-L').length) {
-            $('#menuOverlay-left').removeClass('show');
-            $('.ham-inside-L').removeClass('is-active');
         }
     });
 
-    // 防止點擊menu-wrap時關閉選單
-    $('.menu-wrap').on('click', function (e) {
-        e.stopPropagation();
+    $('#menuOverlay-left').click(function (e) {
+        if ($(e.target).is('#menuOverlay-left')) {
+            $(this).toggleClass('show');
+            $('.hamburger, .ham-inside-L').removeClass('is-active');
+        }
     });
 
 
