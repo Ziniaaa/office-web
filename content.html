@@ -77,44 +77,38 @@
                 <div class="col-wrap">
                     <div class="col col-1">
                         <figure>
-                            <img src="./images/content-1-1.jpg" data-message="我想了解更多關於業務內容一：..." alt="業務內容一照片">
-                            <p>| 點擊立刻詢問細節 |</p>
+                            <img src="./images/content-1-1.jpg" data-message="我想了解更多關於建築規劃：..." alt="業務內容一照片">
+                            <p data-message="我想了解更多關於建築規劃：...">| 點擊立刻詢問細節 |</p>
                         </figure>
-                        <h3>業務內容一</h3>
+                        <h3>建築設計與規劃</h3>
                         <article>
-                            Lorem ipsum <br>
-                            Urna faucibus iaculis<br>
-                            Elementum duis ut tortor non nam<br>
-                            Ultrices idsit at semper mi<br>
-                            Dolor non ut enim ultrices.
+                            提供從概念發想到實體建築的完整設計服務， <br>
+                            包含空間配置、立面設計、結構規劃等，<br>
+                            確保每個項目兼具創意、美感與實用性。
                         </article>
                     </div>
 
                     <div class="col col-2">
-                        <figure><img src="./images/content-2-1.jpg" data-message="我想詢問關於業務內容二的細節：..." alt="業務內容二照片">
-                            <p>| 點擊立刻詢問細節 |</p>
+                        <figure><img src="./images/content-2-1.jpg" data-message="我想詢問關於臨時建築勘驗的細節：..." alt="業務內容二照片">
+                            <p data-message="我想詢問關於臨時建築勘驗的細節：...">| 點擊立刻詢問細節 |</p>
                         </figure>
-                        <h3>業務內容二</h3>
+                        <h3>大型臨時建築勘驗</h3>
                         <article>
-                            Lorem ipsum <br>
-                            Urna faucibus iaculis<br>
-                            Elementum duis ut tortor non nam<br>
-                            Ultrices idsit at semper mi<br>
-                            Dolor non ut enim ultrices.
+                            專業評估各類大型臨時建築的安全性與功能性，<br>
+                            包括結構穩定、消防配置及使用效能，<br>
+                            確保設施符合相關法規與活動需求。
                         </article>
                     </div>
 
                     <div class="col col-3">
-                        <figure><img src="./images/content-3-1.jpg" data-message="關於業務內容三，我有以下問題需要諮詢：..." alt="業務內容三照片">
-                            <p>| 點擊立刻詢問細節 |</p>
+                        <figure><img src="./images/content-3-1.jpg" data-message="關於室內裝修，我有以下問題需要諮詢：..." alt="業務內容三照片">
+                            <p data-message="關於室內裝修，我有以下問題需要諮詢：...">| 點擊立刻詢問細節 |</p>
                         </figure>
-                        <h3>業務內容三</h3>
+                        <h3>室內裝修諮詢</h3>
                         <article>
-                            Lorem ipsum <br>
-                            Urna faucibus iaculis<br>
-                            Elementum duis ut tortor non nam<br>
-                            Ultrices idsit at semper mi<br>
-                            Dolor non ut enim ultrices.
+                            針對住宅、商業空間提供專業室內設計建議，<br>
+                            涵蓋空間規劃、材料選擇與風格搭配，<br>
+                            打造兼具美感與實用的室內環境。
                         </article>
                     </div>
                 </div>
@@ -141,8 +135,8 @@
 
             // 為文字添加點擊事件
             $('.col figure p').click(function () {
-                const message = $(this).data('message');
-                window.location.href = `contact.html?content=${encodeURIComponent(message)}`;
+                const messageP = $(this).data('message');
+                window.location.href = `contact.html?content=${encodeURIComponent(messageP)}`;
             });
         });
     </script>

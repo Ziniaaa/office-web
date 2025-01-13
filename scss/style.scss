@@ -375,7 +375,7 @@
                 @media ($mediaSm) {
                     .projectContent {
                         flex: 1;
-                        margin-bottom: 0;
+                        margin-bottom: 10px;
                         overflow: scroll;
                         z-index: 100;
                         padding-top: 30px;
@@ -932,6 +932,7 @@
                             flex: 1;
                             justify-content: center;
                             padding-left: 0px;
+
                         }
 
                         .col-3 {
@@ -939,11 +940,18 @@
                         }
                     }
 
-                    @media ($mediaMd) {
-                        .col-3 {
-                            display: none;
-                        }
-                    }
+                    // @media ($mediaMd) {
+                    //     .col-2{
+                    //         .profile-wrap{
+                    //             border: red solid;
+                    //             display: flex;
+                    //             flex-direction: row;
+                    //         }
+                    //     }
+                    //     .col-3 {
+                    //         display: none;
+                    //     }
+                    // }
                 }
 
                 @media ($media-ipadPro) {
@@ -970,7 +978,7 @@
                             position: absolute;
                             top: 150px;
                             left: 10%;
-                            width: 500px;
+                            max-width: 500px;
                         }
                     }
                 }
@@ -996,6 +1004,10 @@
                                     height: 100%;
                                 }
                             }
+                        }
+
+                        .col-3 {
+                            display: none;
                         }
                     }
                 }
@@ -1181,7 +1193,8 @@
 
                 small {
                     font-size: $font-size-xs;
-                    color: $gray-bright;
+                    color: $gray-light;
+                    text-align: center;
                 }
             }
         }
@@ -1323,6 +1336,7 @@ footer {
             flex: 3;
             z-index: 10;
             margin-top: 90px;
+            
 
             .thumbnail-pic {
                 // border: solid lightsalmon;
@@ -1340,6 +1354,7 @@ footer {
 
                         &:hover {
                             opacity: 1;
+                            cursor: pointer;
                         }
                     }
                 }
@@ -1436,6 +1451,7 @@ footer {
             flex: 3;
             z-index: 10;
             margin-top: 90px;
+            
 
             .thumbnail-pic {
                 // border: solid lightsalmon;
@@ -1452,6 +1468,7 @@ footer {
 
                         &:hover {
                             opacity: 1;
+                            cursor: pointer;
                         }
                     }
                 }
