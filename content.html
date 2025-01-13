@@ -138,6 +138,12 @@
                 const message = $(this).data('message');
                 window.location.href = `contact.html?content=${encodeURIComponent(message)}`;
             });
+
+            // 為文字添加點擊事件
+            $('.col figure p').click(function () {
+                const message = $(this).data('message');
+                window.location.href = `contact.html?content=${encodeURIComponent(message)}`;
+            });
         });
     </script>
 </body>
