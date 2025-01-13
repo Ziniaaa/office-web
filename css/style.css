@@ -327,6 +327,7 @@ a {
     writing-mode: unset;
     margin-top: 0;
     margin-bottom: 5px;
+    font-size: 1.4rem;
   }
   #index .row1 .row1-left h2 {
     writing-mode: unset;
@@ -379,7 +380,7 @@ a {
 }
 @media (max-width:640px) {
   #project-header .header-left {
-    flex: 8;
+    flex: 9;
   }
   #project-header .header-left h2 {
     margin-bottom: 15px;

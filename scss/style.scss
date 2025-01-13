@@ -177,6 +177,7 @@
                     writing-mode: unset;
                     margin-top: 0;
                     margin-bottom: 5px;
+                    font-size: $font-size-xl;
                 }
 
                 h2 {
@@ -247,13 +248,13 @@
 
             h2 {
                 margin-bottom: 15px;
-            }
+                            }
         }
     }
 
     @media ($mediaSm) {
         .header-left {
-            flex: 8;
+            flex: 9;
 
             h2 {
                 margin-bottom: 15px;
