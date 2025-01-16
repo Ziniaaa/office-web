@@ -166,7 +166,7 @@
 .timeline .swiper-button-prev {
   top: 92%;
   left: 5%;
-  background-image: url(../images/index-arrow-prev.svg);
+  background-image: url(../images/index-arrow-prev3.svg);
 }
 .timeline .swiper-button-prev:hover {
   transform: translateX(-3px);
@@ -174,7 +174,7 @@
 .timeline .swiper-button-next {
   top: 92%;
   right: 5%;
-  background-image: url(../images/index-arrow-next.svg);
+  background-image: url(../images/index-arrow-next3.svg);
 }
 .timeline .swiper-button-next:hover {
   transform: translateX(3px);

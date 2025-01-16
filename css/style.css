@@ -460,13 +460,13 @@ a {
 }
 #project-main .mainLeft .row1 > div .project-detail .detail-note {
   display: inline;
-  background-color: #C0C0C0;
+  background-color: #E2E2E2;
   color: #222222;
   font-size: 0.8rem;
 }
 #project-main .mainLeft .row1 > div .project-detail .detail-note-mobile {
   display: none;
-  background-color: #C0C0C0;
+  background-color: #E2E2E2;
   color: #222222;
   font-size: 0.8rem;
 }
