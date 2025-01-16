@@ -248,7 +248,7 @@
 
             h2 {
                 margin-bottom: 15px;
-                            }
+            }
         }
     }
 
@@ -349,6 +349,7 @@
                         background-color: $gray-bright;
                         color: $gray-darker;
                         font-size: $font-size-s;
+                        padding: 2px 5px;
                     }
 
                     .detail-note-mobile {
@@ -356,6 +357,7 @@
                         background-color: $gray-bright;
                         color: $gray-darker;
                         font-size: $font-size-s;
+                        padding: 2px 5px;
                     }
                 }
 
@@ -379,7 +381,7 @@
                         margin-bottom: 10px;
                         overflow: scroll;
                         z-index: 100;
-                        padding-top: 30px;
+                        padding: 30px ;
 
                         .project-intro {
                             margin-bottom: 15px;
@@ -387,7 +389,7 @@
 
                         .project-detail {
                             p {
-                                margin: 0;
+                                margin: 8px 0;
                             }
 
                             .detail-note {
@@ -545,6 +547,9 @@
         min-width: 60px;
         // outline: lavender solid
         @extend %outline-basic;
+        @media ($mediaSm) {
+            min-width: 45px;
+        }
     }
 }
 
@@ -609,6 +614,9 @@
             .mainLeft {
                 flex: 1;
                 min-width: 60px;
+                @media ($mediaSm) {
+                    min-width: 45px;
+                }
             }
 
             .mainRight {
@@ -830,6 +838,9 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                @media ($mediaSm) {
+                    min-width: 45px;
+                }
 
                 .bottomRight {
                     height: 65px;
@@ -1076,6 +1087,9 @@
         .mainLeft {
             flex: 1;
             min-width: 60px;
+            @media ($mediaSm) {
+                min-width: 45px;
+            }
         }
 
         .mainRight {
@@ -1189,6 +1203,30 @@
                     border: $gray-normal solid 1px;
                     color: $gray-normal;
                     margin-left: 90px;
+                    cursor: pointer;
+                    position: relative;
+                    
+
+                    #submit-arrow {
+                        position: absolute;
+                        width: 15px;
+                        right: -10px;
+                        top: 2px;
+                        opacity: 0;
+                    }
+                    
+                    &:hover {
+                        background-color: $gray-dark;
+                        color: $gray-brighter;
+                        border-radius: 4px;
+                        
+                        #submit-arrow {
+                            opacity: 1;
+                            transform: translateX(15px);  
+                            transition: transform 0.5s ease;
+                      
+                        }
+                    }
 
                 }
 
@@ -1337,7 +1375,7 @@ footer {
             flex: 3;
             z-index: 10;
             margin-top: 90px;
-            
+
 
             .thumbnail-pic {
                 // border: solid lightsalmon;
@@ -1452,7 +1490,7 @@ footer {
             flex: 3;
             z-index: 10;
             margin-top: 90px;
-            
+
 
             .thumbnail-pic {
                 // border: solid lightsalmon;

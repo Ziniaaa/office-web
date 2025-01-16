@@ -463,12 +463,14 @@ a {
   background-color: #E2E2E2;
   color: #222222;
   font-size: 0.8rem;
+  padding: 2px 5px;
 }
 #project-main .mainLeft .row1 > div .project-detail .detail-note-mobile {
   display: none;
   background-color: #E2E2E2;
   color: #222222;
   font-size: 0.8rem;
+  padding: 2px 5px;
 }
 @media (max-width:1024px) {
   #project-main .mainLeft .row1 > div .projectContent .project-detail .detail-note {
@@ -484,13 +486,13 @@ a {
     margin-bottom: 10px;
     overflow: scroll;
     z-index: 100;
-    padding-top: 30px;
+    padding: 30px;
   }
   #project-main .mainLeft .row1 > div .projectContent .project-intro {
     margin-bottom: 15px;
   }
   #project-main .mainLeft .row1 > div .projectContent .project-detail p {
-    margin: 0;
+    margin: 8px 0;
   }
   #project-main .mainLeft .row1 > div .projectContent .project-detail .detail-note {
     display: none;
@@ -609,6 +611,11 @@ a {
   flex: 1;
   min-width: 60px;
 }
+@media (max-width:640px) {
+  #project-main .mainRight {
+    min-width: 45px;
+  }
+}
 
 .tooltip {
   font-family: "Noto Sans TC", sans-serif;
@@ -659,6 +666,11 @@ a {
 #content #content-main .middle .mainLeft {
   flex: 1;
   min-width: 60px;
+}
+@media (max-width:640px) {
+  #content #content-main .middle .mainLeft {
+    min-width: 45px;
+  }
 }
 #content #content-main .middle .mainRight {
   flex: 22;
@@ -829,6 +841,11 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+@media (max-width:640px) {
+  #about #about-main .middle .mainRight {
+    min-width: 45px;
+  }
 }
 #about #about-main .middle .mainRight .bottomRight {
   height: 65px;
@@ -1008,6 +1025,11 @@ a {
   flex: 1;
   min-width: 60px;
 }
+@media (max-width:640px) {
+  #contact #contact-main .mainLeft {
+    min-width: 45px;
+  }
+}
 #contact #contact-main .mainRight {
   background-color: white;
   flex: 22;
@@ -1102,6 +1124,25 @@ a {
   border: #838383 solid 1px;
   color: #838383;
   margin-left: 90px;
+  cursor: pointer;
+  position: relative;
+}
+#contact #contact-main .col-2 #contact-form #submit-btn #submit-arrow {
+  position: absolute;
+  width: 15px;
+  right: -10px;
+  top: 2px;
+  opacity: 0;
+}
+#contact #contact-main .col-2 #contact-form #submit-btn:hover {
+  background-color: #3A3A3A;
+  color: #F5F5F5;
+  border-radius: 4px;
+}
+#contact #contact-main .col-2 #contact-form #submit-btn:hover #submit-arrow {
+  opacity: 1;
+  transform: translateX(15px);
+  transition: transform 0.5s ease;
 }
 #contact #contact-main .col-2 #contact-form small {
   font-size: 0.7rem;
