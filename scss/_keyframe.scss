@@ -17,10 +17,66 @@
         opacity: 1;
         display: flex;
     }
+
     ;
+
     to {
         opacity: 0;
         display: none;
     }
+
     ;
+}
+
+@keyframes breathImg {
+
+    0%,
+    100% {
+        filter: brightness(100%);
+    }
+
+    25% {
+        filter: brightness(40%);
+
+    }
+
+    60% {
+        filter: brightness(50%);
+    }
+}
+
+@keyframes breathP {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.8;
+
+    }
+
+    60% {
+        opacity: 1;
+    }
+}
+
+@keyframes focus {
+
+    0%,
+    100% {
+        background-color: #E2E2E2;
+        filter: none;
+    }
+
+    30% {
+        background-color: rgb(245, 227, 150);
+        filter: drop-shadow(rgb(216, 159, 53) 0px 0px 2px);
+    }
+
+    60% {
+        background-color: rgb(245, 227, 150);
+        filter: drop-shadow(rgb(216, 159, 53) 0px 0px 2px);
+    }
 }
